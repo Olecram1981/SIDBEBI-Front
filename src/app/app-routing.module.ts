@@ -1,3 +1,4 @@
+import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
 import { ClienteReadComponent } from './components/cliente/cliente-read/cliente-read.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
@@ -18,6 +19,8 @@ const routes: Routes = [
       { path: 'clientes/update/:id', component: ClienteUpdateComponent},
       { path: 'clientes/delete/:id', component: ClienteDeleteComponent},
       { path: 'clientes/read/:id', component: ClienteReadComponent},
+
+      { path: 'produtos', component: ProdutoListComponent},
     ]
   }
 ];

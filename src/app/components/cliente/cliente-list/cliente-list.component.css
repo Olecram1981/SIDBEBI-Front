@@ -22,9 +22,13 @@
  }
  
  .edit {
-    color: rgb(0, 153, 255);
- }
- 
- .delete {
-    color: red;
- }
+   color: rgb(255, 242, 4);
+}
+
+.delete {
+   color: red;
+}
+
+.visibility {
+   color: black;
+}
