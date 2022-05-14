@@ -1,0 +1,16 @@
+.card {
+    width: 90%;
+    margin: 1rem auto;
+    background-color: white;
+}
+
+img {
+    height: 28rem;
+    width: 37rem;
+    margin: auto;
+    display: block;
+}
+
+p {
+    text-align: center;
+}
