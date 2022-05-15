@@ -13,7 +13,7 @@ export class ProdutoListComponent implements OnInit {
 
   ELEMENT_DATA: Produto[] = [];
 
-  displayedColumns: string[] = ['id', 'nome', 'tipo', 'tamanho', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'tamanho', 'valorUnit', 'acoes'];
   dataSource = new MatTableDataSource<Produto>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

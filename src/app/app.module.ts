@@ -27,6 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 
+
+
 // Componentes do projeto
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule } from 'ngx-mask';
@@ -39,6 +41,7 @@ import { ClienteListComponent } from './components/cliente/cliente-list/cliente-
 import { ClienteReadComponent } from './components/cliente/cliente-read/cliente-read.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
+import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import { ProdutoListComponent } from './components/produto/produto-list/produto-
     ClienteReadComponent,
     ClienteUpdateComponent,
     ProdutoListComponent,
+    ProdutoCreateComponent,
   ],
   imports: [
     BrowserModule,

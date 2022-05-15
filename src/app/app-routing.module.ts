@@ -1,3 +1,4 @@
+import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
 import { ClienteReadComponent } from './components/cliente/cliente-read/cliente-read.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
@@ -12,15 +13,16 @@ import { NavComponent } from './components/nav/nav.component';
 const routes: Routes = [
   {
     path: '', component: NavComponent, children: [
-      { path: 'home', component: HomeComponent},
+      { path: 'home', component: HomeComponent },
 
-      { path: 'clientes', component: ClienteListComponent},
-      { path: 'clientes/create', component: ClienteCreateComponent},
-      { path: 'clientes/update/:id', component: ClienteUpdateComponent},
-      { path: 'clientes/delete/:id', component: ClienteDeleteComponent},
-      { path: 'clientes/read/:id', component: ClienteReadComponent},
+      { path: 'clientes', component: ClienteListComponent },
+      { path: 'clientes/create', component: ClienteCreateComponent },
+      { path: 'clientes/update/:id', component: ClienteUpdateComponent },
+      { path: 'clientes/delete/:id', component: ClienteDeleteComponent },
+      { path: 'clientes/read/:id', component: ClienteReadComponent },
 
-      { path: 'produtos', component: ProdutoListComponent},
+      { path: 'produtos', component: ProdutoListComponent },
+      { path: 'produtos/create', component: ProdutoCreateComponent },
     ]
   }
 ];
