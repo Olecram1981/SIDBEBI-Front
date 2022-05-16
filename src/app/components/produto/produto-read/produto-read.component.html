@@ -17,8 +17,8 @@
         <mat-label>Tipo ({{ retornaTipo(produto.tipo) }})</mat-label>
         <mat-select 
         [(ngModel)]="produto.tipo"
-        name="tipo">
-        [disabled]="true"
+        name="tipo"        
+        [disabled]="true">
           <mat-option value="0">ALCOÓLICO</mat-option>
           <mat-option value="1">NÃO ALCOÓLICO</mat-option>
           <mat-option value="2">COMIDA</mat-option>

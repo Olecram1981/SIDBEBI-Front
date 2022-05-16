@@ -1,3 +1,5 @@
+import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
+import { FornecedorListComponent } from './components/fornecedor/fornecedor-list/fornecedor-list.component';
 import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
 import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
 import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
@@ -29,6 +31,9 @@ const routes: Routes = [
       { path: 'produtos/update/:id', component: ProdutoUpdateComponent },
       { path: 'produtos/delete/:id', component: ProdutoDeleteComponent },
       { path: 'produtos/read/:id', component: ProdutoReadComponent },
+
+      { path: 'fornecedores', component: FornecedorListComponent },
+      { path: 'fornecedores/create', component: FornecedorCreateComponent },
     ]
   }
 ];
