@@ -49,6 +49,7 @@ import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-cr
 import { FornecedorListComponent } from './components/fornecedor/fornecedor-list/fornecedor-list.component';
 import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
 import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
+import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read/fornecedor-read.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-de
     FornecedorListComponent,
     FornecedorUpdateComponent,
     FornecedorDeleteComponent,
+    FornecedorReadComponent,
   ],
   imports: [
     BrowserModule,
