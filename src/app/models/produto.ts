@@ -1,11 +1,11 @@
 export interface Produto{
     id: any;
-	tipo: any;
+	tipo: string;
 	nome: string;	
 	tamanho: string;
 	qtd: number;
 	valorUnit: number;
 	valorTotal: number;
 	itens: [];
-	nivel: any;
+	nivel: string;
 }

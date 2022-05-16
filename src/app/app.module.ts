@@ -42,6 +42,7 @@ import { ClienteReadComponent } from './components/cliente/cliente-read/cliente-
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
+import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ProdutoCreateComponent } from './components/produto/produto-create/prod
     ClienteUpdateComponent,
     ProdutoListComponent,
     ProdutoCreateComponent,
+    ProdutoUpdateComponent,
   ],
   imports: [
     BrowserModule,

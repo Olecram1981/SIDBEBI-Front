@@ -28,7 +28,6 @@ export class ProdutoCreateComponent implements OnInit {
   nome: FormControl =  new FormControl(null, Validators.required);
   tamanho: FormControl = new FormControl(null, Validators.required);
   valorUnit: FormControl = new FormControl(null, Validators.required);
-  itens: FormControl = new FormControl(null, Validators.required);
 
   constructor(
     private service: ProdutoService,
@@ -54,6 +53,6 @@ export class ProdutoCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.nome.valid 
+    return this.nome.valid && this.tipo.valid && this.tamanho.valid && this.valorUnit.valid
   }
 }
