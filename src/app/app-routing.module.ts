@@ -1,3 +1,5 @@
+import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
+import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
 import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
       { path: 'produtos', component: ProdutoListComponent },
       { path: 'produtos/create', component: ProdutoCreateComponent },
       { path: 'produtos/update/:id', component: ProdutoUpdateComponent },
+      { path: 'produtos/delete/:id', component: ProdutoDeleteComponent },
+      { path: 'produtos/read/:id', component: ProdutoReadComponent },
     ]
   }
 ];

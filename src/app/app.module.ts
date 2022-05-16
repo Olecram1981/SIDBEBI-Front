@@ -43,6 +43,8 @@ import { ClienteUpdateComponent } from './components/cliente/cliente-update/clie
 import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
+import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
+import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { ProdutoUpdateComponent } from './components/produto/produto-update/prod
     ProdutoListComponent,
     ProdutoCreateComponent,
     ProdutoUpdateComponent,
+    ProdutoDeleteComponent,
+    ProdutoReadComponent,
   ],
   imports: [
     BrowserModule,
