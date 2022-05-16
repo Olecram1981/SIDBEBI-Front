@@ -23,10 +23,10 @@ export class ClienteUpdateComponent implements OnInit {
   }
 
   nome: FormControl =  new FormControl(null, Validators.minLength(3));
-  cpfCnpj: FormControl =       new FormControl(null, Validators.required);
-  telefone: FormControl =  new FormControl(null);
-  endereco: FormControl =  new FormControl(null);
-  email: FormControl =        new FormControl(null, Validators.email);
+  cpfCnpj: FormControl = new FormControl(null,);
+  telefone: FormControl =  new FormControl(null, Validators.required);
+  endereco: FormControl =  new FormControl(null, Validators.required);
+  email: FormControl = new FormControl(null);
   
 
   constructor(
@@ -63,6 +63,6 @@ export class ClienteUpdateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.nome.valid && this.cpfCnpj.valid
+    return this.nome.valid && this.telefone.valid && this.endereco.valid
   }
 }

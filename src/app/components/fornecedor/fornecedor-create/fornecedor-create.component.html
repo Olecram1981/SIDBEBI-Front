@@ -23,9 +23,10 @@
           [(ngModel)]="fornecedor.cpfCnpj"
           name="cpfCnpj"
           [formControl]="cpfCnpj"
+          required
           matInput 
-          placeholder="Ex..000.000.000-00"
-          mask="000.000.000-00">
+          placeholder="Ex. 00.000.000/0000-00"
+          mask="00.000.000/0000-00">
           <mat-icon matSuffix>pin </mat-icon>
         </mat-form-field>
  
@@ -35,6 +36,7 @@
           [(ngModel)]="fornecedor.email"
           name="email"
           [formControl]="email"
+          required
           matInput 
           placeholder="Ex.. fulano@mail.com">
           <mat-icon matSuffix>email</mat-icon>

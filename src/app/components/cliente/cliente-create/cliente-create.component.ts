@@ -51,7 +51,6 @@ export class ClienteCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.nome.valid && this.cpfCnpj.valid && this.email.valid && 
-    this.telefone.valid && this.endereco.valid
+    return this.nome.valid && this.telefone.valid && this.endereco.valid
   }
 }

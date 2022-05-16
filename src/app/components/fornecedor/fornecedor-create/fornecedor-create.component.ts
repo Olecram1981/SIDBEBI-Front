@@ -22,8 +22,8 @@ export class FornecedorCreateComponent implements OnInit {
   }
 
   nome: FormControl =  new FormControl(null, Validators.minLength(3));
-  cpfCnpj: FormControl = new FormControl(null);
-  email: FormControl = new FormControl(null);
+  cpfCnpj: FormControl = new FormControl(null, Validators.required);
+  email: FormControl = new FormControl(null, Validators.email);
   telefone: FormControl = new FormControl(null, Validators.required);
   end: FormControl = new FormControl(null, Validators.required);
 

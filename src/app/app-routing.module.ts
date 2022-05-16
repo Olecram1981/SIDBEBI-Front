@@ -1,3 +1,4 @@
+import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
 import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
 import { FornecedorListComponent } from './components/fornecedor/fornecedor-list/fornecedor-list.component';
 import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
 
       { path: 'fornecedores', component: FornecedorListComponent },
       { path: 'fornecedores/create', component: FornecedorCreateComponent },
+      { path: 'fornecedores/update/:id', component: FornecedorUpdateComponent },
     ]
   }
 ];
