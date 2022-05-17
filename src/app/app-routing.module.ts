@@ -1,3 +1,5 @@
+import { ItemCreateComponent } from './components/item/item-create/item-create.component';
+import { ItemListComponent } from './components/item/item-list/item-list.component';
 import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read/fornecedor-read.component';
 import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
 import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
@@ -40,6 +42,9 @@ const routes: Routes = [
       { path: 'fornecedores/update/:id', component: FornecedorUpdateComponent },
       { path: 'fornecedores/delete/:id', component: FornecedorDeleteComponent },
       { path: 'fornecedores/read/:id', component: FornecedorReadComponent },
+
+      { path: 'itensprodutos', component: ItemListComponent },
+      { path: 'itensprodutos/create', component: ItemCreateComponent },
     ]
   }
 ];
