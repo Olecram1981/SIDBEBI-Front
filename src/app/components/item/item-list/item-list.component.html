@@ -20,12 +20,12 @@
  
           <ng-container matColumnDef="nomeProduto">
              <th mat-header-cell *matHeaderCellDef> Produto </th>
-             <td mat-cell *matCellDef="let element"> {{element.nomeProduto}} </td>
+             <td mat-cell *matCellDef="let element"> {{element.produto.nome}} </td>
           </ng-container>
 
           <ng-container matColumnDef="nomeFornecedor">
             <th mat-header-cell *matHeaderCellDef> Fornecedor </th>
-            <td mat-cell *matCellDef="let element"> {{element.nomeFornecedor}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.fornecedor.nome}} </td>
          </ng-container>
  
           <ng-container matColumnDef="codBarra">

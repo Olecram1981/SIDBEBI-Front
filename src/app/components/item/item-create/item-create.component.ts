@@ -18,8 +18,6 @@ export class ItemCreateComponent implements OnInit {
 
   item: Item = {
     id: '',
-    nomeProduto:'',
-    nomeFornecedor:'',
     produto: '',
     fornecedor: '',
     codBarra: ''
@@ -28,8 +26,8 @@ export class ItemCreateComponent implements OnInit {
   produtos: Produto[] = []
   fornecedores: Fornecedor[] = []
 
-  nomeProduto: FormControl = new FormControl(null, [Validators.required]);
-  nomeFornecedor: FormControl = new FormControl(null, [Validators.required]);
+  produto: FormControl = new FormControl(null, [Validators.required]);
+  fornecedor: FormControl = new FormControl(null, [Validators.required]);
   codBarra: FormControl = new FormControl(null, [Validators.required]);
 
   contador: number = 0
@@ -73,7 +71,7 @@ export class ItemCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.nomeProduto.valid && this.nomeFornecedor.valid && this.codBarra.valid 
+    return this.produto.valid && this.fornecedor.valid && this.codBarra.valid 
   }
 
 }

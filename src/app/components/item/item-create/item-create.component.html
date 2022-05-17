@@ -8,9 +8,9 @@
             <mat-form-field class="full-width" appearance="outline">
                <mat-label>Selecione o Produto</mat-label>
                <mat-select 
-               [(ngModel)]="item.nomeProduto"
-               name="nomeProduto"
-               [formControl]="nomeProduto" 
+               [(ngModel)]="item.produto.nome"
+               name="produto"
+               [formControl]="produto" 
                required>
                  <mat-option *ngFor="let prod of produtos" value="{{ prod.id }}">{{ prod.nome }}</mat-option>
                </mat-select>
@@ -21,9 +21,9 @@
             <mat-form-field class="full-width" appearance="outline">
                <mat-label>Selecione o Fornecedor</mat-label>
                <mat-select 
-               [(ngModel)]="item.nomeFornecedor"
+               [(ngModel)]="item.fornecedor.nome"
                name="cliente"
-               [formControl]="nomeFornecedor" 
+               [formControl]="fornecedor" 
                required>
                  <mat-option *ngFor="let forn of fornecedores" value="{{ forn.id }}">{{ forn.nome }}</mat-option>
                </mat-select>
