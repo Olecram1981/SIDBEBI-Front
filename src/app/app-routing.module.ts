@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './components/login/login.component';
 import { ItemReadComponent } from './components/item/item-read/item-read.component';
 import { ItemDeleteComponent } from './components/item/item-delete/item-delete.component';
 import { ItemCreateComponent } from './components/item/item-create/item-create.component';
@@ -23,8 +25,9 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   {
-    path: '', component: NavComponent, children: [
+    path: '', component: NavComponent, canActivate: [AuthGuard], children: [
       { path: 'home', component: HomeComponent },
 
       { path: 'clientes', component: ClienteListComponent },

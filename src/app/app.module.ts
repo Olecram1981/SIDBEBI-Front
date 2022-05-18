@@ -54,6 +54,7 @@ import { ItemListComponent } from './components/item/item-list/item-list.compone
 import { ItemCreateComponent } from './components/item/item-create/item-create.component';
 import { ItemDeleteComponent } from './components/item/item-delete/item-delete.component';
 import { ItemReadComponent } from './components/item/item-read/item-read.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ItemReadComponent } from './components/item/item-read/item-read.compone
     ItemCreateComponent,
     ItemDeleteComponent,
     ItemReadComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
