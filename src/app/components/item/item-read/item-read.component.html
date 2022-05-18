@@ -3,24 +3,24 @@
     <img src="assets/img/delete.jpg" alt="Item image">
      <div class="produto">
        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Produto ({{ item.produto.nome }})</mat-label>
+          <mat-label>Produto ({{ item.nomeProduto }})</mat-label>
           <mat-select 
           [disabled]="true"
-          [(ngModel)]="item.produto"
+          [(ngModel)]="item.nomeProduto"
           name="produto">
-            <mat-option>{{ item.produto }}</mat-option>
+            <mat-option>{{ item.nomeProduto }}</mat-option>
           </mat-select>
         </mat-form-field>
      </div>
  
      <div class="fornecedor">
        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Fornecedor ({{ item.fornecedor.nome }})</mat-label>
+          <mat-label>Fornecedor ({{ item.nomeFornecedor }})</mat-label>
           <mat-select 
           [disabled]="true"
-          [(ngModel)]="item.fornecedor"
+          [(ngModel)]="item.nomeFornecedor"
           name="fornecedor">
-            <mat-option>{{ item.fornecedor }}</mat-option>
+            <mat-option>{{ item.nomeFornecedor }}</mat-option>
           </mat-select>
         </mat-form-field>
      </div>

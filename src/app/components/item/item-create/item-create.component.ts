@@ -1,13 +1,12 @@
 import { FornecedorService } from './../../../services/fornecedor.service';
-import { ItemService } from 'src/app/services/item.service';
-import { Fornecedor } from './../../../models/fornecedor';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { ProdutoService } from 'src/app/services/produto.service';
-import { FormControl, Validators } from '@angular/forms';
+import { ProdutoService } from './../../../services/produto.service';
+import { Fornecedor } from 'src/app/models/fornecedor';
 import { Produto } from 'src/app/models/produto';
-import { Item } from './../../../models/item';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Item } from 'src/app/models/item';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-item-create',
@@ -20,23 +19,23 @@ export class ItemCreateComponent implements OnInit {
     id: '',
     produto: '',
     fornecedor: '',
-    codBarra: ''
+    codBarra: '',
+    nomeFornecedor:'',
+    nomeProduto: ''
   }
 
   produtos: Produto[] = []
   fornecedores: Fornecedor[] = []
 
-  produto: FormControl = new FormControl(null, [Validators.required]);
-  fornecedor: FormControl = new FormControl(null, [Validators.required]);
-  codBarra: FormControl = new FormControl(null, [Validators.required]);
-
-  contador: number = 0
-
+  produto: FormControl = new FormControl(null, Validators.required);
+  fornecedor: FormControl = new FormControl(null, Validators.required);
+  codBarra: FormControl = new FormControl(null, Validators.required);
+  
   constructor(
     private itemService: ItemService,
     private produtoService: ProdutoService,
     private fornecedorService: FornecedorService,
-    private toast: ToastrService,
+    private toastService: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -46,15 +45,9 @@ export class ItemCreateComponent implements OnInit {
 
   create(): void {
     this.itemService.create(this.item).subscribe(() => {
-      this.toast.success('Item adcionado com sucesso', 'Cadastro');
-    }, ex => {
-      if(ex.error.errors) {
-        ex.error.errors.forEach(element => {
-          this.toast.error(element.message);
-        });
-      } else {
-        this.toast.error(ex.error.message);
-      }
+      this.toastService.success('Item criado com sucesso', 'Novo item');
+    }, ex => {      
+      this.toastService.error(ex.error.error);
     })
   }
 

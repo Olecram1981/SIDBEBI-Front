@@ -3,4 +3,6 @@ export interface Item{
 	produto: any;
     fornecedor: any;
     codBarra: string;
+    nomeProduto: string;
+    nomeFornecedor: string;
 }

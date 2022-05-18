@@ -1,8 +1,8 @@
+import { ItemCreateComponent } from './components/item/item-create/item-create.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { ItemReadComponent } from './components/item/item-read/item-read.component';
 import { ItemDeleteComponent } from './components/item/item-delete/item-delete.component';
-import { ItemCreateComponent } from './components/item/item-create/item-create.component';
 import { ItemListComponent } from './components/item/item-list/item-list.component';
 import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read/fornecedor-read.component';
 import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';

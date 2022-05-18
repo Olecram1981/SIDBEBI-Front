@@ -15,7 +15,9 @@ export class ItemDeleteComponent implements OnInit {
     id: '',
     produto: '',
     fornecedor: '',
-    codBarra: ''
+    codBarra: '',
+    nomeFornecedor:'',
+    nomeProduto: ''
   }
 
   constructor(
