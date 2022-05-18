@@ -1,3 +1,5 @@
+import { ItemReadComponent } from './components/item/item-read/item-read.component';
+import { ItemDeleteComponent } from './components/item/item-delete/item-delete.component';
 import { ItemCreateComponent } from './components/item/item-create/item-create.component';
 import { ItemListComponent } from './components/item/item-list/item-list.component';
 import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read/fornecedor-read.component';
@@ -45,6 +47,8 @@ const routes: Routes = [
 
       { path: 'itensprodutos', component: ItemListComponent },
       { path: 'itensprodutos/create', component: ItemCreateComponent },
+      { path: 'itensprodutos/delete/:id', component: ItemDeleteComponent },
+      { path: 'itensprodutos/read/:id', component: ItemReadComponent },
     ]
   }
 ];

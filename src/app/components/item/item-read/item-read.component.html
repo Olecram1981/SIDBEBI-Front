@@ -1,0 +1,41 @@
+<div class="container mat-elevation-z8">
+    <h1 class="full-width">Leitura de item</h1>
+    <img src="assets/img/delete.jpg" alt="Item image">
+     <div class="produto">
+       <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Produto ({{ item.produto.nome }})</mat-label>
+          <mat-select 
+          [disabled]="true"
+          [(ngModel)]="item.produto"
+          name="produto">
+            <mat-option>{{ item.produto }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+     </div>
+ 
+     <div class="fornecedor">
+       <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Fornecedor ({{ item.fornecedor.nome }})</mat-label>
+          <mat-select 
+          [disabled]="true"
+          [(ngModel)]="item.fornecedor"
+          name="fornecedor">
+            <mat-option>{{ item.fornecedor }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+     </div>
+ 
+     <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Código de Barras</mat-label>
+          <input 
+          [disabled]="true"
+          [(ngModel)]="item.codBarra"
+          name="codBarras"
+          matInput>
+        </mat-form-field>
+      </form>
+ 
+     <button routerLink="../../" class="full-width mat-elevation-z4" mat-stroked-button color="warn">Retornar</button>
+    
+ </div>

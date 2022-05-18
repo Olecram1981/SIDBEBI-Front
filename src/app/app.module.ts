@@ -52,6 +52,8 @@ import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-de
 import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read/fornecedor-read.component';
 import { ItemListComponent } from './components/item/item-list/item-list.component';
 import { ItemCreateComponent } from './components/item/item-create/item-create.component';
+import { ItemDeleteComponent } from './components/item/item-delete/item-delete.component';
+import { ItemReadComponent } from './components/item/item-read/item-read.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,8 @@ import { ItemCreateComponent } from './components/item/item-create/item-create.c
     FornecedorReadComponent,
     ItemListComponent,
     ItemCreateComponent,
+    ItemDeleteComponent,
+    ItemReadComponent,
   ],
   imports: [
     BrowserModule,
