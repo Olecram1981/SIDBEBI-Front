@@ -1,6 +1,6 @@
 .container {
    width: 45%;
-   margin: auto auto 3rem auto;
+   margin: auto;
    padding: 1rem;
    border-radius: 1rem;
 }
@@ -27,4 +27,8 @@ button {
 p {
    margin-top: 3rem;
    opacity: .5;
+}
+
+.cont {
+   font-size: 20px;
 }

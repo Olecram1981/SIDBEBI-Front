@@ -27,6 +27,8 @@ export class ItemCreateComponent implements OnInit {
   produtos: Produto[] = []
   fornecedores: Fornecedor[] = []
 
+  contador: number = 0
+
   produto: FormControl = new FormControl(null, Validators.required);
   fornecedor: FormControl = new FormControl(null, Validators.required);
   codBarra: FormControl = new FormControl(null, Validators.required);
@@ -45,7 +47,8 @@ export class ItemCreateComponent implements OnInit {
 
   create(): void {
     this.itemService.create(this.item).subscribe(() => {
-      this.toastService.success('Item criado com sucesso', 'Novo item');
+      this.contador = this.contador + 1;
+      this.codBarra.reset();
     }, ex => {      
       this.toastService.error(ex.error.error);
     })
