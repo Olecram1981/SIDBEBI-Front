@@ -50,7 +50,13 @@ export class ItemCreateComponent implements OnInit {
       this.contador = this.contador + 1;
       this.codBarra.reset();
     }, ex => {      
-      this.toastService.error(ex.error.error);
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toastService.error(element.message);
+        });
+      } else {
+        this.toastService.error(ex.error.message);
+      }
     })
   }
 
