@@ -1,3 +1,5 @@
+import { SenhaCreateComponent } from './components/senha/senha-create/senha-create.component';
+import { SenhaMenuComponent } from './components/senha/senha-menu/senha-menu.component';
 import { ItemCreateComponent } from './components/item/item-create/item-create.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './components/login/login.component';
@@ -52,6 +54,9 @@ const routes: Routes = [
       { path: 'itensprodutos/create', component: ItemCreateComponent },
       { path: 'itensprodutos/delete/:id', component: ItemDeleteComponent },
       { path: 'itensprodutos/read/:id', component: ItemReadComponent },
+
+      { path: 'senhas', component: SenhaMenuComponent },
+      { path: 'senhas/create', component: SenhaCreateComponent },
     ]
   }
 ];

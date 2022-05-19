@@ -56,6 +56,8 @@ import { ItemCreateComponent } from './components/item/item-create/item-create.c
 import { ItemDeleteComponent } from './components/item/item-delete/item-delete.component';
 import { ItemReadComponent } from './components/item/item-read/item-read.component';
 import { LoginComponent } from './components/login/login.component';
+import { SenhaMenuComponent } from './components/senha/senha-menu/senha-menu.component';
+import { SenhaCreateComponent } from './components/senha/senha-create/senha-create.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { LoginComponent } from './components/login/login.component';
     ItemDeleteComponent,
     ItemReadComponent,
     LoginComponent,
+    SenhaMenuComponent,
+    SenhaCreateComponent,
   ],
   imports: [
     BrowserModule,

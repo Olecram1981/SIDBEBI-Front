@@ -1,0 +1,56 @@
+<div class="container mat-elevation-z8">
+    <form class="form">
+ 
+       <h1 class="fullWidth">Cadastro Usuário e Senha</h1>
+
+       <section class="section">
+        <mat-checkbox (click)="addPerfil(1)" [checked]="true" class="margin" color="primary">Usuário</mat-checkbox>
+        <mat-checkbox (click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
+       </section>
+ 
+        <mat-form-field class="fullWidth" appearance="legacy">
+          <mat-label>Nome</mat-label>
+          <input 
+          [(ngModel)]="senhas.nome"
+          name="nome"
+          [formControl]="nome"
+          required
+          matInput 
+          placeholder="Ex.. fulano de tal"
+          maxlength="50">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        
+        <mat-form-field class="fullWidth" appearance="legacy">
+          <mat-label>E-mail</mat-label>
+          <input 
+          [(ngModel)]="senhas.email"
+          name="email"
+          [formControl]="email"
+          required
+          matInput 
+          placeholder="Ex.. fulano@mail.com"
+          maxlength="50">
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth" appearance="legacy">
+          <mat-label>Senha</mat-label>
+          <input 
+          [(ngModel)]="senhas.senha"
+          name="senha"
+          [formControl]="senha"
+          required
+          type="password" 
+          matInput 
+          placeholder="Ex.. 1234">
+          <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+ 
+        <button (click)="create()" [disabled]="!validaCampos()" class="fullWidth mat-elevation-z4" 
+        mat-flat-button color="primary">Cadastrar</button>
+        
+        <button routerLink="../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Cancelar</button>
+    </form>
+ 
+ </div>
