@@ -23,7 +23,6 @@ export class SenhaCreateComponent implements OnInit {
   nome: FormControl =  new FormControl(null, Validators.minLength(3));
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
-  perfis: FormControl = new FormControl(null, Validators.required);
 
   constructor(
     private service: SenhaService,
@@ -35,7 +34,7 @@ export class SenhaCreateComponent implements OnInit {
 
   create(): void {
     this.service.create(this.senhas).subscribe(() => {
-      this.toast.success('Senha cadastrado com sucesso', 'Cadastro');
+      this.toast.success('Usuário cadastrado com sucesso', 'Cadastro');
       this.router.navigate(['senhas']);
     }, ex => {
       if(ex.error.errors) {
