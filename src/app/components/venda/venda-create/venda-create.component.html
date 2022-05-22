@@ -1,0 +1,105 @@
+<div class="container mat-elevation-z8">
+    <form class="form">
+  
+      <h1 class="full-width">Venda</h1>
+      <img src="assets/img/clientes.jpg" alt="venda image">
+     
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Selecione o Cliente</mat-label>
+        <mat-select 
+        [(ngModel)]="venda.cliente"
+        name="cliente"
+        [formControl]="cliente" 
+        required>
+         <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{ cli.nome }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Quantidade de Itens</mat-label>
+        <input         
+        [(ngModel)]="venda.qtdItens"
+        name="qtdItens"
+        [formControl]="qtdItens"
+        matInput>
+      </mat-form-field>  
+      
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Valor Total</mat-label>
+        <input         
+        [(ngModel)]="venda.valorTotal"
+        name="valorTotal"
+        [formControl]="valorTotal"
+        matInput>
+      </mat-form-field>  
+
+      <mat-form-field appearance="outline">
+        <mat-label>Forma do Pagamento</mat-label>
+        <mat-select 
+        [(ngModel)]="venda.pagamento"
+        name="pagamento"
+        [formControl]="pagamento" 
+        required>
+          <mat-option value="0">DINHEIRO</mat-option>
+          <mat-option value="1">CARTÃO DE CRÉDITO</mat-option>
+          <mat-option value="2">CARTÃO DE DÉBITO</mat-option>
+          <mat-option value="2">PIX</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Item</mat-label>
+        <input 
+        type="text" (input)="itemTambela()"
+        [(ngModel)]="venda.itens"
+        name="codBarra"
+        [formControl]="itensT"
+        required
+        matInput
+        maxlength="50">
+      </mat-form-field>   
+
+      <div class="mat-elevation-z8">
+ 
+        <table mat-table [dataSource]="dataSource">
+  
+           <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.produto.id}} </td>
+           </ng-container>
+  
+           <ng-container matColumnDef="produto">
+              <th mat-header-cell *matHeaderCellDef> Produto </th>
+              <td mat-cell *matCellDef="let element"> {{element.produto.nome}} </td>
+           </ng-container>          
+  
+           <ng-container matColumnDef="valorUnitario">
+              <th mat-header-cell *matHeaderCellDef> Valor Unitário </th>
+              <td mat-cell *matCellDef="let element"> {{element.produto.valorUnitario}} </td>
+           </ng-container>
+  
+           <ng-container matColumnDef="acoes">
+              <th mat-header-cell *matHeaderCellDef> Ações </th>
+              <td mat-cell *matCellDef="let element">
+                 <a routerLink="delete/{{ element.id }}">
+                    <i class="material-icons delete">delete</i>
+                 </a>
+                 <a routerLink="read/{{ element.id }}">
+                   <i class="material-icons visibility">visibility</i>
+                </a>
+              </td>
+           </ng-container>
+  
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+     </div>
+
+      <button (click)="create()" [disabled]="!validaCampos()" class="fullWidth mat-elevation-z4" 
+      mat-flat-button color="primary">Gerar Venda</button>
+  
+      <button routerLink="../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Cancelar</button>
+      
+    </form>
+  </div>

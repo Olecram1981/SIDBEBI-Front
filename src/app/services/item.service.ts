@@ -11,8 +11,8 @@ export class ItemService {
 
   constructor(private http: HttpClient) { }
 
-  findById(id: any): Observable<Item> {
-    return this.http.get<Item>(`${API_CONFIG.baseUrl}/itensprodutos/${id}`);
+  findByCodBarra(codBarra: string): Observable<Item> {
+    return this.http.get<Item>(`${API_CONFIG.baseUrl}/usuarios/${codBarra}`);
   }
 
   findAll(): Observable<Item[]> {

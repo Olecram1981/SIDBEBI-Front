@@ -59,6 +59,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SenhaMenuComponent } from './components/senha/senha-menu/senha-menu.component';
 import { SenhaCreateComponent } from './components/senha/senha-create/senha-create.component';
 import { SenhaDeleteComponent } from './components/senha/senha-delete/senha-delete.component';
+import { VendaListComponent } from './components/venda/venda-list/venda-list.component';
+import { VendaCreateComponent } from './components/venda/venda-create/venda-create.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { SenhaDeleteComponent } from './components/senha/senha-delete/senha-dele
     SenhaMenuComponent,
     SenhaCreateComponent,
     SenhaDeleteComponent,
+    VendaListComponent,
+    VendaCreateComponent,
   ],
   imports: [
     BrowserModule,

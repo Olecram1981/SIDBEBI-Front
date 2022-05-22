@@ -1,3 +1,5 @@
+import { VendaCreateComponent } from './components/venda/venda-create/venda-create.component';
+import { VendaListComponent } from './components/venda/venda-list/venda-list.component';
 import { SenhaDeleteComponent } from './components/senha/senha-delete/senha-delete.component';
 import { SenhaCreateComponent } from './components/senha/senha-create/senha-create.component';
 import { SenhaMenuComponent } from './components/senha/senha-menu/senha-menu.component';
@@ -55,6 +57,9 @@ const routes: Routes = [
       { path: 'itensprodutos/create', component: ItemCreateComponent },
       { path: 'itensprodutos/delete/:id', component: ItemDeleteComponent },
       { path: 'itensprodutos/read/:id', component: ItemReadComponent },
+
+      { path: 'vendas', component: VendaListComponent },
+      { path: 'vendas/create', component: VendaCreateComponent },
 
       { path: 'senhas', component: SenhaMenuComponent },
       { path: 'senhas/create', component: SenhaCreateComponent },
