@@ -1,11 +1,47 @@
 <div class="container">
 
-    <h1>Usuários e Senhas</h1>
- 
-    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Criar Usuário e Senha</button>
- 
-    <button routerLink="update" class="mat-elevation-z8" mat-stroked-button color="primary">Alterar Senha</button>
+  <h1>Lista de Usuários</h1>
 
-    <button routerLink="delete" class="mat-elevation-z8" mat-stroked-button color="primary">Excluir Usuário</button>
- 
- </div>
+  <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Adicionar Usuário</button>
+
+  <mat-form-field appearance="standard">
+     <mat-label>Buscar</mat-label>
+     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. abc" #input>
+   </mat-form-field>
+
+  <div class="mat-elevation-z8">
+
+     <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="id">
+           <th mat-header-cell *matHeaderCellDef> ID </th>
+           <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nome">
+           <th mat-header-cell *matHeaderCellDef> Nome </th>
+           <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+         <th mat-header-cell *matHeaderCellDef> E-mail </th>
+         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+        <ng-container matColumnDef="acoes">
+           <th mat-header-cell *matHeaderCellDef> Ações </th>
+           <td mat-cell *matCellDef="let element">
+              <a routerLink="delete/{{ element.id }}">
+                 <i class="material-icons delete">delete</i>
+              </a>
+           </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+     </table>
+
+     <mat-paginator [pageSizeOptions]="[5, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+
+</div>

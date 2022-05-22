@@ -12,11 +12,15 @@ export class SenhaService {
   constructor(private http: HttpClient) { }
 
   findById(id: any): Observable<Senha> {
-    return this.http.get<Senha>(`${API_CONFIG.baseUrl}/senhas/${id}`);
+    return this.http.get<Senha>(`${API_CONFIG.baseUrl}/usuarios/${id}`);
+  }
+
+  findByEmail(email: string): Observable<Senha> {
+    return this.http.get<Senha>(`${API_CONFIG.baseUrl}/usuarios/${email}`);
   }
 
   findAll(): Observable<Senha[]> {
-    return this.http.get<Senha[]>(`${API_CONFIG.baseUrl}/senhas`);
+    return this.http.get<Senha[]>(`${API_CONFIG.baseUrl}/usuarios`);
   }
 
   create(senha: Senha): Observable<Senha> {
@@ -24,10 +28,10 @@ export class SenhaService {
   }
 
   update(senha: Senha): Observable<Senha> {
-    return this.http.put<Senha>(`${API_CONFIG.baseUrl}/senhas/${senha.id}`, senha);
+    return this.http.put<Senha>(`${API_CONFIG.baseUrl}/usuarios/${senha.id}`, senha);
   }
 
   delete(id: any): Observable<Senha> {
-    return this.http.delete<Senha>(`${API_CONFIG.baseUrl}/senhas/${id}`);
+    return this.http.delete<Senha>(`${API_CONFIG.baseUrl}/usuarios/${id}`);
   }
 }

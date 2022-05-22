@@ -46,15 +46,7 @@ export class SenhaCreateComponent implements OnInit {
       }
     })
   }
-
-  addPerfil(perfil: any): void {
-    if(this.senhas.perfis.includes(perfil)) {
-      this.senhas.perfis.splice(this.senhas.perfis.indexOf(perfil), 1);
-    } else {
-      this.senhas.perfis.push(perfil);
-    }    
-  }
-
+  
   validaCampos(): boolean {
     return this.nome.valid && this.email.valid && this.senha.valid
   }

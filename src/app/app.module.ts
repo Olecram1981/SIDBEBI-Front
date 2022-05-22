@@ -58,6 +58,7 @@ import { ItemReadComponent } from './components/item/item-read/item-read.compone
 import { LoginComponent } from './components/login/login.component';
 import { SenhaMenuComponent } from './components/senha/senha-menu/senha-menu.component';
 import { SenhaCreateComponent } from './components/senha/senha-create/senha-create.component';
+import { SenhaDeleteComponent } from './components/senha/senha-delete/senha-delete.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { SenhaCreateComponent } from './components/senha/senha-create/senha-crea
     LoginComponent,
     SenhaMenuComponent,
     SenhaCreateComponent,
+    SenhaDeleteComponent,
   ],
   imports: [
     BrowserModule,

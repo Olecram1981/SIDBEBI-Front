@@ -1,3 +1,4 @@
+import { SenhaDeleteComponent } from './components/senha/senha-delete/senha-delete.component';
 import { SenhaCreateComponent } from './components/senha/senha-create/senha-create.component';
 import { SenhaMenuComponent } from './components/senha/senha-menu/senha-menu.component';
 import { ItemCreateComponent } from './components/item/item-create/item-create.component';
@@ -57,6 +58,8 @@ const routes: Routes = [
 
       { path: 'senhas', component: SenhaMenuComponent },
       { path: 'senhas/create', component: SenhaCreateComponent },
+      { path: 'senhas/delete/:id', component: SenhaDeleteComponent },
+      
     ]
   }
 ];
