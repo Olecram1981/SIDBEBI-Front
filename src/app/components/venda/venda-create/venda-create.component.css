@@ -10,8 +10,17 @@
    width: 100%;
 }
 
+.box {
+   margin-right: 2rem;
+}
+
 h1, p {
    text-align: center;
+}
+
+h2 {
+   font-size: 15px;
+   margin-left: 1rem;
 }
 
 img {

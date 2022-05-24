@@ -7,5 +7,4 @@ export interface Venda{
     qtdItens: number;
     valorTotal: number;
     pagamento: any; 
-    codBarra: string;  
 }

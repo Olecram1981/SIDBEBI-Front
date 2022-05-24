@@ -1,3 +1,4 @@
+import { Produto } from './../../../models/produto';
 import { Item } from './../../../models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { ItensVendaService } from './../../../services/itens-venda.service';
@@ -18,10 +19,9 @@ import { VendaService } from 'src/app/services/venda.service';
 })
 export class VendaCreateComponent implements OnInit {
 
-  ELEMENT_DATA: Item[] = [];
+  elementos: Item[] = [];
 
   displayedColumns: string[] = ['id', 'produto', 'valorUnitario', 'acoes'];
-  dataSource = new MatTableDataSource<Item>(this.ELEMENT_DATA);
 
   venda: Venda = {
     id: '',
@@ -31,15 +31,20 @@ export class VendaCreateComponent implements OnInit {
     cliente: '',
     qtdItens: 0,
     valorTotal: 0,
-    pagamento: '',
-    codBarra: ''  
+    pagamento: '',    
   }
 
   clientes: Cliente[] = []
 
+  codBarra: string
+  i: number = 0
+
   cliente: FormControl = new FormControl(null, Validators.required);
   pagamento: FormControl = new FormControl(null, Validators.required);
-  codBarra: FormControl = new FormControl(null, Validators.required);
+  codBarraT: FormControl = new FormControl(null, Validators.required);
+  qtdItens: FormControl = new FormControl(null);
+  valorTotal: FormControl = new FormControl(null);
+  
   
   constructor(
     private vendaService: VendaService,
@@ -51,15 +56,29 @@ export class VendaCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllClientes();
-  } 
+    this.qtdItens.disable();
+    this.valorTotal.disable();
+  }
 
   itemTambela(): void {
-    this.venda.itens.push(this.venda.codBarra);       
-    this.itemService.findByCodBarra(this.venda.codBarra).subscribe(resposta => {
-      this.ELEMENT_DATA.push(resposta);
-      this.dataSource = new MatTableDataSource<Item>(this.ELEMENT_DATA);
+    this.venda.itens.push(this.codBarra)
+    this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {      
+      this.elementos.push(resposta);
+      this.venda.qtdItens = this.venda.qtdItens + 1;
+      this.qtdItens.setValue(this.venda.qtdItens);      
+      this.venda.valorTotal = this.venda.valorTotal + this.elementos[this.i].produto.valorUnit;
+      this.i = this.i + 1;
+      this.valorTotal.setValue(this.venda.valorTotal);
+    }, ex => { 
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toast.error(element.message);
+        });
+      } else {
+        this.toast.error(ex.error.message);
+      }
     })
-    this.codBarra.reset(); 
+    this.codBarraT.reset(); 
   }
 
   create(): void {
