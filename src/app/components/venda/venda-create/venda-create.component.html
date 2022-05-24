@@ -13,25 +13,7 @@
         required>
          <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{ cli.nome }}</mat-option>
         </mat-select>
-      </mat-form-field>
-    
-      <mat-form-field class="fullWidth" appearance="legacy">
-        <mat-label>Quantidade de Itens</mat-label>
-        <input         
-        [(ngModel)]="venda.qtdItens"
-        name="qtdItens"
-        [formControl]="qtdItens"
-        matInput>
-      </mat-form-field>  
-      
-      <mat-form-field class="fullWidth" appearance="legacy">
-        <mat-label>Valor Total</mat-label>
-        <input         
-        [(ngModel)]="venda.valorTotal"
-        name="valorTotal"
-        [formControl]="valorTotal"
-        matInput>
-      </mat-form-field>  
+      </mat-form-field>     
 
       <mat-form-field appearance="outline">
         <mat-label>Forma do Pagamento</mat-label>
@@ -49,15 +31,33 @@
 
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Item</mat-label>
-        <input 
-        type="text" (input)="itemTambela()"
-        [(ngModel)]="venda.itens"
+        <input    
+        type="text" (input)="itemTambela()"     
+        [(ngModel)]="venda.codBarra"        
         name="codBarra"
-        [formControl]="itensT"
+        [formControl]="codBarra"
         required
         matInput
         maxlength="50">
-      </mat-form-field>   
+      </mat-form-field>  
+      
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Quantidade de Itens</mat-label>
+        <input   
+        [disabled]="true"      
+        [(ngModel)]="venda.qtdItens"
+        name="qtdItens"      
+        matInput>
+      </mat-form-field>  
+      
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Valor Total</mat-label>
+        <input      
+        [disabled]="true"   
+        [(ngModel)]="venda.valorTotal"
+        name="valorTotal"  
+        matInput>
+      </mat-form-field>  
 
       <div class="mat-elevation-z8">
  
@@ -65,26 +65,26 @@
   
            <ng-container matColumnDef="id">
               <th mat-header-cell *matHeaderCellDef> ID </th>
-              <td mat-cell *matCellDef="let element"> {{element.produto.id}} </td>
+              <td mat-cell *matCellDef="let element"> Aqui {{element.item.produto.id}} </td>
            </ng-container>
   
            <ng-container matColumnDef="produto">
               <th mat-header-cell *matHeaderCellDef> Produto </th>
-              <td mat-cell *matCellDef="let element"> {{element.produto.nome}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.item.produto.nome}} </td>
            </ng-container>          
   
            <ng-container matColumnDef="valorUnitario">
               <th mat-header-cell *matHeaderCellDef> Valor Unitário </th>
-              <td mat-cell *matCellDef="let element"> {{element.produto.valorUnitario}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.item.produto.valorUnitario}} </td>
            </ng-container>
   
            <ng-container matColumnDef="acoes">
               <th mat-header-cell *matHeaderCellDef> Ações </th>
               <td mat-cell *matCellDef="let element">
-                 <a routerLink="delete/{{ element.id }}">
+                 <a routerLink="delete/{{ element.item.produto.id }}">
                     <i class="material-icons delete">delete</i>
                  </a>
-                 <a routerLink="read/{{ element.id }}">
+                 <a routerLink="read/{{ element.item.produto.id }}">
                    <i class="material-icons visibility">visibility</i>
                 </a>
               </td>

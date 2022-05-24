@@ -1,4 +1,4 @@
-import { Item } from 'src/app/models/item';
+import { Item } from './../../../models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { ItensVendaService } from './../../../services/itens-venda.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -18,10 +18,10 @@ import { VendaService } from 'src/app/services/venda.service';
 })
 export class VendaCreateComponent implements OnInit {
 
-  ELEMENT_DATA: Venda[] = [];
+  ELEMENT_DATA: Item[] = [];
 
   displayedColumns: string[] = ['id', 'produto', 'valorUnitario', 'acoes'];
-  dataSource = new MatTableDataSource<Venda>(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Item>(this.ELEMENT_DATA);
 
   venda: Venda = {
     id: '',
@@ -31,23 +31,18 @@ export class VendaCreateComponent implements OnInit {
     cliente: '',
     qtdItens: 0,
     valorTotal: 0,
-    pagamento: ''   
+    pagamento: '',
+    codBarra: ''  
   }
 
   clientes: Cliente[] = []
-  itens: Item[] = []
 
-  dataHora: FormControl = new FormControl(null, Validators.required);
-  itensT: FormControl = new FormControl(null, Validators.required);
-  itensVenda: FormControl = new FormControl(null, Validators.required);
   cliente: FormControl = new FormControl(null, Validators.required);
-  qtdItens: FormControl = new FormControl(null, Validators.required);
-  valorTotal: FormControl = new FormControl(null, Validators.required);
   pagamento: FormControl = new FormControl(null, Validators.required);
+  codBarra: FormControl = new FormControl(null, Validators.required);
   
   constructor(
     private vendaService: VendaService,
-    private itensVendaService: ItensVendaService,
     private itemService: ItemService,
     private clienteService: ClienteService,
     private toast: ToastrService,
@@ -56,12 +51,15 @@ export class VendaCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllClientes();
-  }
+  } 
 
   itemTambela(): void {
-    this.itemService.findByCodBarra(itens).subscribe(resposta => {
-      this.itens = resposta;
+    this.venda.itens.push(this.venda.codBarra);       
+    this.itemService.findByCodBarra(this.venda.codBarra).subscribe(resposta => {
+      this.ELEMENT_DATA.push(resposta);
+      this.dataSource = new MatTableDataSource<Item>(this.ELEMENT_DATA);
     })
+    this.codBarra.reset(); 
   }
 
   create(): void {
@@ -86,8 +84,7 @@ export class VendaCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.dataHora.valid && this.itensT.valid && this.itensVenda.valid 
-    && this.cliente.valid && this.qtdItens.valid && this.valorTotal.valid && this.pagamento.valid
+    return this.cliente.valid && this.pagamento.valid
   }
 
 }
