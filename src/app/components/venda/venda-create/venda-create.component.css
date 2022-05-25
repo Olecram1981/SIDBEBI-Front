@@ -36,8 +36,13 @@ img {
    justify-content: space-between;
 }
 
-button {
+.qtd {
    margin-top: 1rem;
+   width: 100%;
+}
+
+button {
+   margin-top: .5rem;
 }
 
 p {

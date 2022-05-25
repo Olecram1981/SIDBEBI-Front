@@ -40,7 +40,7 @@ export class SenhaDeleteComponent implements OnInit {
 
   delete(): void {
     this.service.delete(this.senha.id).subscribe(() => {
-      this.toast.success('Senha excluído com sucesso', 'Delete');
+      this.toast.success('Usuário excluído com sucesso', 'Delete');
       this.router.navigate(['senhas'])
     }, ex => {
       if(ex.error.errors) {

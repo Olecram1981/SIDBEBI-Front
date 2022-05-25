@@ -1,8 +1,5 @@
-import { Produto } from './../../../models/produto';
 import { Item } from './../../../models/item';
 import { ItemService } from 'src/app/services/item.service';
-import { ItensVendaService } from './../../../services/itens-venda.service';
-import { MatTableDataSource } from '@angular/material/table';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
@@ -60,8 +57,8 @@ export class VendaCreateComponent implements OnInit {
     this.valorTotal.disable();
   }
 
-  itemTambela(): void {
-    this.venda.itens.push(this.codBarra)
+  itemTabela(): void {
+    this.venda.itensVenda.push(this.codBarra)
     this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {      
       this.elementos.push(resposta);
       this.venda.qtdItens = this.venda.qtdItens + 1;
@@ -103,7 +100,11 @@ export class VendaCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.cliente.valid && this.pagamento.valid
+    if(this.elementos.length > 0) {
+      return this.cliente.valid && this.pagamento.valid;    
+    }else{
+      return false;
+    }
   }
 
 }

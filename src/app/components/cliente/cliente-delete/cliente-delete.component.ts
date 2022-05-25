@@ -18,7 +18,8 @@ export class ClienteDeleteComponent implements OnInit {
     cpfCnpj: '',
     telefone: '',
     endereco: '',
-    email: ''
+    email: '',
+    clientes: []
   }
 
   constructor(

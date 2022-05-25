@@ -30,9 +30,8 @@
       </mat-form-field>
 
       <mat-form-field class="fullWidth" appearance="legacy">
-        <mat-label>Item</mat-label>
-        <input    
-        type="text" (input)="itemTambela()"     
+        <mat-label>Código de Barras</mat-label>
+        <input                
         [(ngModel)]="codBarra"        
         name="codBarra"
         [formControl]="codBarraT"
@@ -40,8 +39,11 @@
         matInput
         maxlength="50">
       </mat-form-field>  
+
+      <button (click)="itemTabela()" class="fullWidth mat-elevation-z4" 
+        mat-flat-button color="primary">Inserir Item</button>
       
-      <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-form-field class="qtd" appearance="legacy">
         <mat-label>Quantidade de Itens</mat-label>
         <input   
         [disabled]="true"      

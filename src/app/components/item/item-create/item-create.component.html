@@ -26,10 +26,9 @@
       </mat-select>
     </mat-form-field>    
 
-    <mat-form-field class="fullWidth" appearance="legacy">
+    <mat-form-field class="codBarra" appearance="legacy">
       <mat-label>Código de Barras</mat-label>
       <input 
-      type="text" (input)="create()"
       [(ngModel)]="item.codBarra"
       name="codBarra"
       [formControl]="codBarra"
@@ -38,8 +37,11 @@
       maxlength="50">
     </mat-form-field>   
 
+    <button (click)="create()" [disabled]="!validaCampos()" class="inserir mat-elevation-z4" 
+      mat-flat-button color="primary">Inserir Item</button> 
+
     <h1 class="cont">Quantidade de itens inseridos: {{contador}}</h1>
-      
+         
     <button routerLink="../" class="full-width mat-elevation-z4" mat-stroked-button color="warn">Encerrar</button>
     
   </form>
