@@ -3,7 +3,7 @@
   <img src="assets/img/delete.jpg" alt="Item image">
    <div class="produto">
      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Produto ({{ item.nomeProduto }})</mat-label>
+        <mat-label>Produto ({{ item.nomeProduto }} {{item.tamanho}})</mat-label>
         <mat-select 
         [disabled]="true"
         [(ngModel)]="item.produto"

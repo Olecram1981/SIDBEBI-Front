@@ -20,7 +20,7 @@
  
           <ng-container matColumnDef="nomeProduto">
              <th mat-header-cell *matHeaderCellDef> Produto </th>
-             <td mat-cell *matCellDef="let element"> {{element.nomeProduto}} </td>
+             <td mat-cell *matCellDef="let element"> {{element.nomeProduto}} {{element.tamanho}} </td>
           </ng-container>
 
           <ng-container matColumnDef="nomeFornecedor">

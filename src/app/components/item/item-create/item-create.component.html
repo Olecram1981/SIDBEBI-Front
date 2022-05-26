@@ -11,7 +11,7 @@
       name="produto"
       [formControl]="produto" 
       required>
-       <mat-option *ngFor="let prod of produtos" value="{{ prod.id }}">{{ prod.nome }}</mat-option>
+       <mat-option *ngFor="let prod of produtos" value="{{ prod.id }}">{{ prod.nome }} {{ prod.tamanho }}</mat-option>
       </mat-select>
     </mat-form-field>
   
