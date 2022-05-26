@@ -17,7 +17,9 @@ export class ItemReadComponent implements OnInit {
     fornecedor: '',
     codBarra: '',
     nomeFornecedor:'',
-    nomeProduto: ''
+    nomeProduto: '',
+    tamanho: '',
+    valor: 0
   }
 
   constructor(

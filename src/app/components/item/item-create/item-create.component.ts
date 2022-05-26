@@ -21,7 +21,9 @@ export class ItemCreateComponent implements OnInit {
     fornecedor: '',
     codBarra: '',
     nomeFornecedor:'',
-    nomeProduto: ''
+    nomeProduto: '',
+    tamanho: '',
+    valor: 0
   }
 
   produtos: Produto[] = []

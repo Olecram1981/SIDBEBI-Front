@@ -5,4 +5,6 @@ export interface Item{
     codBarra: string;
     nomeProduto: string;
     nomeFornecedor: string;
+    tamanho: string;
+    valor: number;
 }

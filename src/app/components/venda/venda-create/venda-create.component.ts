@@ -16,7 +16,11 @@ import { VendaService } from 'src/app/services/venda.service';
 })
 export class VendaCreateComponent implements OnInit {
 
-  elementos: Item[] = [];
+  itens: Item[] = [];
+  clientes: Cliente[] = []
+
+  codBarra: string
+  i: number = 0
   
   venda: Venda = {
     id: '',
@@ -28,11 +32,6 @@ export class VendaCreateComponent implements OnInit {
     valorTotal: 0,
     pagamento: '',    
   }
-
-  clientes: Cliente[] = []
-
-  codBarra: string
-  i: number = 0
 
   cliente: FormControl = new FormControl(null, Validators.required);
   pagamento: FormControl = new FormControl(null, Validators.required);
@@ -51,15 +50,17 @@ export class VendaCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllClientes();
+    this.qtdItens.disable();
+    this.valorTotal.disable();
   }
 
   itemTabela(): void {
     this.venda.itensVenda.push(this.codBarra)
     this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {           
-      this.elementos.push(resposta);
+      this.itens.push(resposta);
       this.venda.qtdItens = this.venda.qtdItens + 1;
       this.qtdItens.setValue(this.venda.qtdItens);      
-      this.venda.valorTotal = this.venda.valorTotal + this.elementos[this.i].produto.valorUnit;
+      this.venda.valorTotal = this.venda.valorTotal + this.itens[this.i].valor;
       this.i = this.i + 1;
       this.valorTotal.setValue(this.venda.valorTotal);
     }, ex => { 
@@ -96,7 +97,7 @@ export class VendaCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    if(this.elementos.length > 0) {
+    if(this.itens.length > 0) {
       return this.cliente.valid && this.pagamento.valid;    
     }else{
       return false;
