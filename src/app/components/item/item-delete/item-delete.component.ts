@@ -29,12 +29,12 @@ export class ItemDeleteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.item.id = this.route.snapshot.paramMap.get('id');
-    this.findById();
+    this.item.codBarra = this.route.snapshot.paramMap.get('codBarra');
+    this.findByCodBarra();
   }
 
-  findById(): void {
-    this.itemService.findById(this.item.id).subscribe(resposta => {
+  findByCodBarra(): void {
+    this.itemService.findByCodBarra(this.item.codBarra).subscribe(resposta => {
       this.item = resposta;
     }, ex => {
       this.toastService.error(ex.error.error);

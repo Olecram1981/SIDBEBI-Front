@@ -55,8 +55,8 @@ const routes: Routes = [
 
       { path: 'itensprodutos', component: ItemListComponent },
       { path: 'itensprodutos/create', component: ItemCreateComponent },
-      { path: 'itensprodutos/delete/:id', component: ItemDeleteComponent },
-      { path: 'itensprodutos/read/:id', component: ItemReadComponent },
+      { path: 'itensprodutos/delete/:codBarra', component: ItemDeleteComponent },
+      { path: 'itensprodutos/read/:codBarra', component: ItemReadComponent },
 
       { path: 'vendas', component: VendaListComponent },
       { path: 'vendas/create', component: VendaCreateComponent },

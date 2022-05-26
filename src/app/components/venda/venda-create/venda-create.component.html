@@ -45,8 +45,7 @@
       
       <mat-form-field class="qtd" appearance="legacy">
         <mat-label>Quantidade de Itens</mat-label>
-        <input   
-        [disabled]="true"      
+        <input           
         [(ngModel)]="venda.qtdItens"
         [formControl]="qtdItens"
         name="qtdItens"      
@@ -55,8 +54,7 @@
       
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Valor Total</mat-label>
-        R$ <input      
-        [disabled]="true"   
+        R$ <input            
         [(ngModel)]="venda.valorTotal"
         [formControl]="valorTotal"
         name="valorTotal"        
