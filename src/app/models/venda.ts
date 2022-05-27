@@ -1,10 +1,10 @@
 export interface Venda{
     id: any;
     dataHora: any;
-    itens: string[];
+    itens: any[];
     itensVenda: string[];
     cliente: any;
     qtdItens: number;
     valorTotal: number;
-    pagamento: any; 
+    pagamento: string; 
 }

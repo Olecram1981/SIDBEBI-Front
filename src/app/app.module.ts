@@ -61,6 +61,7 @@ import { SenhaCreateComponent } from './components/senha/senha-create/senha-crea
 import { SenhaDeleteComponent } from './components/senha/senha-delete/senha-delete.component';
 import { VendaListComponent } from './components/venda/venda-list/venda-list.component';
 import { VendaCreateComponent } from './components/venda/venda-create/venda-create.component';
+import { VendaDeleteComponent } from './components/venda/venda-delete/venda-delete.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { VendaCreateComponent } from './components/venda/venda-create/venda-crea
     SenhaDeleteComponent,
     VendaListComponent,
     VendaCreateComponent,
+    VendaDeleteComponent,
   ],
   imports: [
     BrowserModule,
