@@ -62,6 +62,7 @@ import { SenhaDeleteComponent } from './components/senha/senha-delete/senha-dele
 import { VendaListComponent } from './components/venda/venda-list/venda-list.component';
 import { VendaCreateComponent } from './components/venda/venda-create/venda-create.component';
 import { VendaDeleteComponent } from './components/venda/venda-delete/venda-delete.component';
+import { VendaReadComponent } from './components/venda/venda-read/venda-read.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { VendaDeleteComponent } from './components/venda/venda-delete/venda-dele
     VendaListComponent,
     VendaCreateComponent,
     VendaDeleteComponent,
+    VendaReadComponent,
   ],
   imports: [
     BrowserModule,
