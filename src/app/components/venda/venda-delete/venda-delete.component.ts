@@ -14,9 +14,7 @@ import { VendaService } from 'src/app/services/venda.service';
 export class VendaDeleteComponent implements OnInit {
 
   itens: any[] = [];
-
-  cliente: Cliente;
-
+  
   venda: Venda = {
     id: '',
     dataHora: '',
@@ -39,14 +37,17 @@ export class VendaDeleteComponent implements OnInit {
   ngOnInit(): void {
     this.venda.id = this.route.snapshot.paramMap.get('id');
     this.findById();
-    this.findClienteById();
    }
 
   findById(): void {
     this.service.findById(this.venda.id).subscribe(resposta => {
       this.venda = resposta;
-      this.itens = this.venda.itens;
+      this.itens = this.venda.itens;     
+      this.clienteService.findById(this.venda.cliente).subscribe(resposta => {   
+        this.venda.cliente = resposta.nome;   
+      })
     })
+   
   }
 
   delete(): void {
@@ -63,20 +64,14 @@ export class VendaDeleteComponent implements OnInit {
       }
     })
   }
-
-  findClienteById(): void {
-    this.clienteService.findById(this.venda.cliente).subscribe(resposta => {
-      this.venda.cliente = resposta.nome;
-    })
-  }
-
+  
   retornaPagamento(pagamento: any): string {
     if(pagamento == '0') {
       return 'DINHEIRO'
     } else if(pagamento == '1') {
-      return 'CARTÃO DE CRÉDITO'
+      return 'CRÉDITO'
     } else if(pagamento == '2') {
-      return 'CARTÃO DE DÉBITO'
+      return 'DÉBITO'
     } else {
       return 'PIX'
     }

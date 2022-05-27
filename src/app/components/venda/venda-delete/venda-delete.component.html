@@ -26,13 +26,13 @@
 
      <mat-form-field appearance="outline">
       <mat-label>Pagamento ({{ retornaPagamento(venda.pagamento) }})</mat-label>
-      <mat-select
+      <mat-select 
       [(ngModel)]="venda.pagamento"
       name="pagamento"
       [disabled]="true">
         <mat-option value="0">DINHEIRO</mat-option>
-        <mat-option value="1">CARTÃO DE CRÉDITO</mat-option>
-        <mat-option value="2">CARTÃO DE DÉBITO</mat-option>
+        <mat-option value="1">DÉBIDO</mat-option>
+        <mat-option value="2">CRÉDITO</mat-option>
         <mat-option value="3">PIX</mat-option>
       </mat-select>
     </mat-form-field>
