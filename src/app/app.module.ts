@@ -63,6 +63,8 @@ import { VendaListComponent } from './components/venda/venda-list/venda-list.com
 import { VendaCreateComponent } from './components/venda/venda-create/venda-create.component';
 import { VendaDeleteComponent } from './components/venda/venda-delete/venda-delete.component';
 import { VendaReadComponent } from './components/venda/venda-read/venda-read.component';
+import { AgendamentoListComponent } from './components/agendamento/agendamento-list/agendamento-list.component';
+import { AgendamentoCreateComponent } from './components/agendamento/agendamento-create/agendamento-create.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +99,8 @@ import { VendaReadComponent } from './components/venda/venda-read/venda-read.com
     VendaCreateComponent,
     VendaDeleteComponent,
     VendaReadComponent,
+    AgendamentoListComponent,
+    AgendamentoCreateComponent,
   ],
   imports: [
     BrowserModule,

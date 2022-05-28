@@ -1,3 +1,4 @@
+import { AgendamentoListComponent } from './components/agendamento/agendamento-list/agendamento-list.component';
 import { VendaReadComponent } from './components/venda/venda-read/venda-read.component';
 import { VendaDeleteComponent } from './components/venda/venda-delete/venda-delete.component';
 import { VendaCreateComponent } from './components/venda/venda-create/venda-create.component';
@@ -65,9 +66,12 @@ const routes: Routes = [
       { path: 'vendas/delete/:id', component: VendaDeleteComponent },
       { path: 'vendas/read/:id', component: VendaReadComponent },
 
+      { path: 'agendamentos', component: AgendamentoListComponent },
+
       { path: 'senhas', component: SenhaMenuComponent },
       { path: 'senhas/create', component: SenhaCreateComponent },
       { path: 'senhas/delete/:id', component: SenhaDeleteComponent },
+      
       
       
     ]
