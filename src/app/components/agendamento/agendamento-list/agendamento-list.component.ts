@@ -15,7 +15,7 @@ export class AgendamentoListComponent implements OnInit {
   FILTERED_DATA: Agendamento[] = []
 
 
-  displayedColumns: string[] = ['id', 'cliente', 'status', 'valorTotal', 'acoes'];
+  displayedColumns: string[] = ['id', 'cliente', 'status', 'dataHora', 'valorTotal', 'acoes'];
   dataSource = new MatTableDataSource<Agendamento>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

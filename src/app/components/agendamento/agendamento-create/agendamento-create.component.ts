@@ -30,6 +30,7 @@ export class AgendamentoCreateComponent implements OnInit {
     cliente: '',
     qtdItens: 0,
     valorTotal: 0,
+    telefone: '',
     pagamento: '', 
     status: '',
     end: '',   
@@ -42,6 +43,7 @@ export class AgendamentoCreateComponent implements OnInit {
   valorTotal: FormControl = new FormControl(null, Validators.required);
   status: FormControl = new FormControl(null, Validators.required);
   end: FormControl = new FormControl(null, Validators.required);
+  telefone: FormControl = new FormControl(null, Validators.required);
   
   
   constructor(
@@ -81,7 +83,7 @@ export class AgendamentoCreateComponent implements OnInit {
 
   create(): void {
     this.agendamentoService.create(this.agendamento).subscribe(() => {
-      this.toast.success('Agendamento efetuada com sucesso', 'Cadastro');
+      this.toast.success('Agendamento efetuado com sucesso', 'Cadastro');
       this.router.navigate(['agendamentos']);
     }, ex => {      
       if(ex.error.errors) {
@@ -112,6 +114,7 @@ export class AgendamentoCreateComponent implements OnInit {
     for (let x = 0; x <= this.clientes.length; x++) {
       if(this.clientes[x].id == this.agendamento.cliente){
         this.agendamento.end = this.clientes[x].endereco;
+        this.agendamento.telefone = this.clientes[x].telefone;
       }
     }
   }

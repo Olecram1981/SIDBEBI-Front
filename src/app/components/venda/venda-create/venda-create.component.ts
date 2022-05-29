@@ -17,7 +17,6 @@ import { VendaService } from 'src/app/services/venda.service';
 export class VendaCreateComponent implements OnInit {
 
   itens: Item[] = [];
-  clientes: Cliente[] = []
 
   codBarra: string
   i: number = 0
@@ -33,7 +32,6 @@ export class VendaCreateComponent implements OnInit {
     pagamento: '',    
   }
 
-  cliente: FormControl = new FormControl(null, Validators.required);
   pagamento: FormControl = new FormControl(null, Validators.required);
   codBarraT: FormControl = new FormControl(null, Validators.required);
   qtdItens: FormControl = new FormControl(null, Validators.required);
@@ -43,13 +41,11 @@ export class VendaCreateComponent implements OnInit {
   constructor(
     private vendaService: VendaService,
     private itemService: ItemService,
-    private clienteService: ClienteService,
     private toast: ToastrService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.findAllClientes();
     this.qtdItens.disable();
     this.valorTotal.disable();
   }
@@ -90,15 +86,9 @@ export class VendaCreateComponent implements OnInit {
     })
   }
 
-  findAllClientes(): void {
-    this.clienteService.findAll().subscribe(resposta => {
-      this.clientes = resposta;
-    })
-  }
-
   validaCampos(): boolean {
     if(this.itens.length > 0) {
-      return this.cliente.valid && this.pagamento.valid;    
+      return this.pagamento.valid;    
     }else{
       return false;
     }

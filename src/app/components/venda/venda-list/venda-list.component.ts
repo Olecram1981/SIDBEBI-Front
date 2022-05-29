@@ -13,7 +13,7 @@ export class VendaListComponent implements OnInit {
 
   ELEMENT_DATA: Venda[] = [];
 
-  displayedColumns: string[] = ['id', 'cliente', 'dataHora', 'valorTotal', 'acoes'];
+  displayedColumns: string[] = ['id', 'pagamento', 'dataHora', 'valorTotal', 'acoes'];
   dataSource = new MatTableDataSource<Venda>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

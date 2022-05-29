@@ -6,6 +6,7 @@ export interface Agendamento{
     cliente: any;
     qtdItens: number;
     valorTotal: number;
+    telefone: string;
     pagamento: string; 
     status: any;
     end: string;
