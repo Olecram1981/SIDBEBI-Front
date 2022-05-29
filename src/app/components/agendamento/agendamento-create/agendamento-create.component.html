@@ -5,11 +5,12 @@
       <img src="assets/img/clientes.jpg" alt="agendamento image">
      
       <mat-form-field class="box full-width" appearance="outline">
-        <mat-label>Selecione o Cliente</mat-label>
+        <mat-label>Selecione o Cliente</mat-label>           
         <mat-select 
         [(ngModel)]="agendamento.cliente"
         name="cliente"
         [formControl]="cliente" 
+        type="text" (ngModelChange)="carregarEnd()"        
         required>
          <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{ cli.nome }}</mat-option>
         </mat-select>
@@ -39,17 +40,6 @@
           <mat-option value="3">PIX</mat-option>
         </mat-select>
       </mat-form-field>
-  
-      <mat-form-field class="fullWidth" appearance="legacy">
-        <mat-label>Código de Barras</mat-label>
-        <input                
-        [(ngModel)]="codBarra"        
-        name="codBarra"
-        [formControl]="codBarraT"
-        required
-        matInput
-        maxlength="50">
-      </mat-form-field>  
 
       <mat-form-field class="box full-width" appearance="outline">
         <mat-label>Status do Agendamento</mat-label>
@@ -64,6 +54,17 @@
           <mat-option value="3">CANCELADO</mat-option>
         </mat-select>
       </mat-form-field>
+  
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Código de Barras</mat-label>
+        <input                
+        [(ngModel)]="codBarra"        
+        name="codBarra"
+        [formControl]="codBarraT"
+        required
+        matInput
+        maxlength="50">
+      </mat-form-field>       
   
       <button (click)="itemTabela()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Inserir Item</button>
       

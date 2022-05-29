@@ -108,4 +108,12 @@ export class AgendamentoCreateComponent implements OnInit {
     }
   }
 
+  carregarEnd(): void {
+    for (let x = 0; x <= this.clientes.length; x++) {
+      if(this.clientes[x].id == this.agendamento.cliente){
+        this.agendamento.end = this.clientes[x].endereco;
+      }
+    }
+  }
+
 }

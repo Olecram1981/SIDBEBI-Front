@@ -12,6 +12,8 @@ import { AgendamentoService } from 'src/app/services/agendamento.service';
 export class AgendamentoListComponent implements OnInit {
 
   ELEMENT_DATA: Agendamento[] = [];
+  FILTERED_DATA: Agendamento[] = []
+
 
   displayedColumns: string[] = ['id', 'cliente', 'status', 'valorTotal', 'acoes'];
   dataSource = new MatTableDataSource<Agendamento>(this.ELEMENT_DATA);
@@ -37,6 +39,29 @@ export class AgendamentoListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  orderByStatus(status: any): void{
+    let list: Agendamento[] = []
+    this.ELEMENT_DATA.forEach(element => {
+      if(element.status == status)
+        list.push(element)
+    });
+    this.FILTERED_DATA = list;
+    this.dataSource = new MatTableDataSource<Agendamento>(list);
+    this.dataSource.paginator = this.paginator;
+  }
+
+  retornaStatus(status: any): string {
+    if(status == '0') {
+      return 'SOLICITADO'
+    } else if(status == '1') {
+      return 'ANDAMENTO'
+    } else if(status == '2') {
+      return 'ENTREGUE'
+    } else {
+      return 'CANCELADO'
+    }
   }
 
 }
