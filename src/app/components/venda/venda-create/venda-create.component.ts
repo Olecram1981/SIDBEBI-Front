@@ -26,7 +26,6 @@ export class VendaCreateComponent implements OnInit {
     dataHora: '',
     itens: [],
     itensVenda: [],
-    cliente: '',
     qtdItens: 0,
     valorTotal: 0,
     pagamento: '',    

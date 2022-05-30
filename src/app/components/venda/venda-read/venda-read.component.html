@@ -13,17 +13,6 @@
       </mat-form-field>
     </form>
   
-     <div class="cliente">
-       <mat-form-field class="full-width" appearance="outline">
-          <mat-label> Cliente ({{ venda.cliente }})</mat-label>
-          <mat-select 
-          [disabled]="true"         
-          name="cliente">
-            <mat-option>{{ venda.cliente }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-     </div>
-
      <mat-form-field appearance="outline">
       <mat-label>Pagamento ({{ retornaPagamento(venda.pagamento) }})</mat-label>
       <mat-select 

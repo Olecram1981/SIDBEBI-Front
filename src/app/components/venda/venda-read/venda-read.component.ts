@@ -20,7 +20,6 @@ export class VendaReadComponent implements OnInit {
     dataHora: '',
     itens: [],
     itensVenda: [],
-    cliente: '',
     qtdItens: 0,
     valorTotal: 0,
     pagamento: '',    
@@ -43,11 +42,7 @@ export class VendaReadComponent implements OnInit {
     this.service.findById(this.venda.id).subscribe(resposta => {
       this.venda = resposta;
       this.itens = this.venda.itens;     
-      this.clienteService.findById(this.venda.cliente).subscribe(resposta => {   
-        this.venda.cliente = resposta.nome;   
-      })
-    })
-   
+    })   
   }
 
   retornaPagamento(pagamento: any): string {

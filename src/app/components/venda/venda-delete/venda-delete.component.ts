@@ -20,7 +20,6 @@ export class VendaDeleteComponent implements OnInit {
     dataHora: '',
     itens: [],
     itensVenda: [],
-    cliente: '',
     qtdItens: 0,
     valorTotal: 0,
     pagamento: '',    
@@ -42,10 +41,8 @@ export class VendaDeleteComponent implements OnInit {
   findById(): void {
     this.service.findById(this.venda.id).subscribe(resposta => {
       this.venda = resposta;
-      this.itens = this.venda.itens;     
-      this.clienteService.findById(this.venda.cliente).subscribe(resposta => {   
-        this.venda.cliente = resposta.nome;   
-      })
+      this.itens = this.venda.itens;    
+      
     })
    
   }
