@@ -1,0 +1,63 @@
+.container {
+    width: 35rem;
+    margin: auto;
+    padding: 1rem;
+    border-radius: .6rem;
+    background-color: white;
+ }
+ 
+ .fullWidth {
+    width: 100%;
+ }
+ 
+ .box {
+    margin-right: 2rem;
+ }
+ 
+ h1, p {
+    text-align: center;
+ }
+ 
+ h2 {
+    font-size: 15px;
+    margin-left: 1rem;
+ }
+ 
+ img {
+    height: 12rem;
+    width: 15rem;    
+    margin: auto;
+    display: block;
+ }
+ 
+ .section {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+ }
+ 
+ .qtd {
+    margin-top: 1rem;
+    width: 100%;
+ }
+ 
+ button {
+    margin-top: .5rem;
+ }
+ 
+ p {
+    margin-top: 4rem;
+    opacity: .5;
+ }
+ 
+ mat-icon {
+    opacity: .8;
+ }
+ 
+ .mat-radio-button {
+   margin-left: 16px;
+ }
+ 
+ table {
+   width: 100%;
+ }

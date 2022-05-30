@@ -11,10 +11,10 @@
 
      <mat-radio-group color="primary">
       <mat-radio-button checked="true" (click)="findAll()" value="null">TODOS</mat-radio-button>
-      <mat-radio-button (click)="orderByStatus(0)" value="0">SOLICITADO</mat-radio-button>
-      <mat-radio-button (click)="orderByStatus(1)" value="1">ANDAMENTO</mat-radio-button>
-      <mat-radio-button (click)="orderByStatus(2)" value="2">ENTREGUE</mat-radio-button>
-      <mat-radio-button (click)="orderByStatus(3)" value="3">CANCELADO</mat-radio-button>
+      <mat-radio-button (click)="orderByStatus('SOLICITADO')" value="0">SOLICITADO</mat-radio-button>
+      <mat-radio-button (click)="orderByStatus('ANDAMENTO')" value="1">ANDAMENTO</mat-radio-button>
+      <mat-radio-button (click)="orderByStatus('ENTREGUE')" value="2">ENTREGUE</mat-radio-button>
+      <mat-radio-button (click)="orderByStatus('CANCELADO')" value="3">CANCELADO</mat-radio-button>
     </mat-radio-group>
  
     <div class="mat-elevation-z8">

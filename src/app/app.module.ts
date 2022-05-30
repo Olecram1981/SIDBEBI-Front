@@ -65,6 +65,7 @@ import { VendaDeleteComponent } from './components/venda/venda-delete/venda-dele
 import { VendaReadComponent } from './components/venda/venda-read/venda-read.component';
 import { AgendamentoListComponent } from './components/agendamento/agendamento-list/agendamento-list.component';
 import { AgendamentoCreateComponent } from './components/agendamento/agendamento-create/agendamento-create.component';
+import { AgendamentoUpdateComponent } from './components/agendamento/agendamento-update/agendamento-update.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { AgendamentoCreateComponent } from './components/agendamento/agendamento
     VendaReadComponent,
     AgendamentoListComponent,
     AgendamentoCreateComponent,
+    AgendamentoUpdateComponent,
   ],
   imports: [
     BrowserModule,
