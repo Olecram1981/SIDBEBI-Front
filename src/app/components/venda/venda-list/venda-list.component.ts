@@ -39,4 +39,16 @@ export class VendaListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  retornarPagamento(pagamento: any): string {
+    if(pagamento == '0') {
+      return 'DINHEIRO'
+    } else if(pagamento == '1') {
+      return 'CRÉDITO'
+    } else if(pagamento == '2') {
+      return 'DÉBITO'
+    } else {
+      return 'PIX'
+    }
+  }
+
 }

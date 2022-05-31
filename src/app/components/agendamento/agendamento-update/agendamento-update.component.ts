@@ -28,6 +28,7 @@ export class AgendamentoUpdateComponent implements OnInit {
     telefone: '',
     pagamento: '', 
     status: '',
+    nomeCliente: '',
     end: '',   
   }
 
@@ -44,12 +45,13 @@ export class AgendamentoUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.agendamento.id = this.route.snapshot.paramMap.get('id');
-    this.findById();
+    this.findById();    
    } 
 
    findById(): void {
     this.service.findById(this.agendamento.id).subscribe(resposta => {
       this.agendamento = resposta;
+      this.verificarStatus();
     })
   }
 
@@ -72,6 +74,13 @@ export class AgendamentoUpdateComponent implements OnInit {
     this.clienteService.findAll().subscribe(resposta => {
       this.clientes = resposta;
     })
+  }
+
+  verificarStatus(): void {
+    if(this.agendamento.status == 'ENTREGUE' || this.agendamento.status == 'CANCELADO'){
+      this.toast.warning('Agendamento já finalizado.', 'Status')
+      this.router.navigate(['agendamentos'])
+    }
   }
 
   validaCampos(): boolean {

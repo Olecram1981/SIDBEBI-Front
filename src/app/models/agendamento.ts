@@ -9,5 +9,6 @@ export interface Agendamento{
     telefone: string;
     pagamento: string; 
     status: any;
+    nomeCliente: string;
     end: string;
 }

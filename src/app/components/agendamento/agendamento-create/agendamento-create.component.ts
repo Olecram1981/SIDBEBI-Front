@@ -33,6 +33,7 @@ export class AgendamentoCreateComponent implements OnInit {
     telefone: '',
     pagamento: '', 
     status: '',
+    nomeCliente: '',
     end: '',   
   }
 
@@ -58,6 +59,8 @@ export class AgendamentoCreateComponent implements OnInit {
     this.findAllClientes();
     this.qtdItens.disable();
     this.valorTotal.disable();
+    this.end.disable();
+    this.telefone.disable();
   }
 
   itemTabela(): void {
