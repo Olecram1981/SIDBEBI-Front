@@ -67,6 +67,7 @@ import { AgendamentoListComponent } from './components/agendamento/agendamento-l
 import { AgendamentoCreateComponent } from './components/agendamento/agendamento-create/agendamento-create.component';
 import { AgendamentoUpdateComponent } from './components/agendamento/agendamento-update/agendamento-update.component';
 import { AgendamentoReadComponent } from './components/agendamento/agendamento-read/agendamento-read.component';
+import { RelatorioCreateComponent } from './components/relatorio/relatorio-create/relatorio-create.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { AgendamentoReadComponent } from './components/agendamento/agendamento-r
     AgendamentoCreateComponent,
     AgendamentoUpdateComponent,
     AgendamentoReadComponent,
+    RelatorioCreateComponent,
   ],
   imports: [
     BrowserModule,
