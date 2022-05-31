@@ -107,7 +107,7 @@ export class AgendamentoCreateComponent implements OnInit {
 
   validaCampos(): boolean {
     if(this.itens.length > 0) {
-      return this.cliente.valid && this.pagamento.valid && this.status.valid && this.end.valid;    
+      return this.cliente.valid && this.pagamento.valid && this.status.valid;    
     }else{
       return false;
     }

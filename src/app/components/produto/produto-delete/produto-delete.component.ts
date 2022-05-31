@@ -62,8 +62,10 @@ export class ProdutoDeleteComponent implements OnInit {
       return 'ALCOÓLICO'
     } else if(tipo == '1') {
       return 'NÃO ALCOÓLICO'
-    } else {
+    } else if(tipo == '2') {
       return 'COMIDA'
+    } else {
+      return 'DIVERSOS'
     }
   }
 
