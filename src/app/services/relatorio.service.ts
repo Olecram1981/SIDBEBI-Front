@@ -1,3 +1,4 @@
+import { Venda } from 'src/app/models/venda';
 import { Relatorio } from 'src/app/models/relatorio';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,8 +12,8 @@ export class RelatorioService {
 
   constructor(private http: HttpClient) { }
 
-  find(relatorio: Relatorio): Observable<Relatorio[]> {
-    return this.http.get<Relatorio[]>(`${API_CONFIG.baseUrl}/relatorios/${relatorio}`);
+  find(dataInicial: Date, dataFinal: Date): Observable<Venda[]> {
+    return this.http.get<Venda[]>(`${API_CONFIG.baseUrl}/relatorios/${dataInicial}${dataFinal}`);
   }
   
 }

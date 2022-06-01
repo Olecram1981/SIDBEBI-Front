@@ -1,10 +1,9 @@
+import { Venda } from 'src/app/models/venda';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { RelatorioService } from 'src/app/services/relatorio.service';
-import { FornecedorService } from './../../../services/fornecedor.service';
 import { ProdutoService } from './../../../services/produto.service';
-import { Fornecedor } from 'src/app/models/fornecedor';
 import { Produto } from 'src/app/models/produto';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
@@ -17,10 +16,10 @@ import { Relatorio } from 'src/app/models/relatorio';
 })
 export class RelatorioCreateComponent implements OnInit {
 
-  ELEMENT_DATA: Relatorio[] = [];
+  ELEMENT_DATA: Venda[] = [];
 
-  displayedColumns: string[] = ['id', 'produto', 'tipo', 'qtdTotal', 'valorTotal'];
-  dataSource = new MatTableDataSource<Relatorio>(this.ELEMENT_DATA);
+  displayedColumns: string[] = ['produto', 'valorUnit'];
+  dataSource = new MatTableDataSource<Venda>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -53,7 +52,7 @@ export class RelatorioCreateComponent implements OnInit {
 
   
   find(): void {
-    this.relatorioService.find(this.relatorio).subscribe(resposta => {
+    this.relatorioService.find(this.relatorio.dataInicial, this.relatorio.dataFinal).subscribe(resposta => {
       this.ELEMENT_DATA = resposta;
       this.toast.info('Relatóriio gerado com sucesso', 'Relatório');      
     }, ex => {      
