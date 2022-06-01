@@ -12,7 +12,7 @@ export class RelatorioService {
   constructor(private http: HttpClient) { }
 
   find(relatorio: Relatorio): Observable<Relatorio[]> {
-    return this.http.post<Relatorio[]>(`${API_CONFIG.baseUrl}/itensprodutos`, relatorio);
+    return this.http.get<Relatorio[]>(`${API_CONFIG.baseUrl}/relatorios/${relatorio}`);
   }
   
 }
