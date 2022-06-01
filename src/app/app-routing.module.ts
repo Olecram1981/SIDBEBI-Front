@@ -1,3 +1,4 @@
+import { RelatorioCreateComponent } from './components/relatorio/relatorio-create/relatorio-create.component';
 import { AgendamentoReadComponent } from './components/agendamento/agendamento-read/agendamento-read.component';
 import { AgendamentoUpdateComponent } from './components/agendamento/agendamento-update/agendamento-update.component';
 import { AgendamentoCreateComponent } from './components/agendamento/agendamento-create/agendamento-create.component';
@@ -73,6 +74,8 @@ const routes: Routes = [
       { path: 'agendamentos/create', component: AgendamentoCreateComponent },
       { path: 'agendamentos/update/:id', component: AgendamentoUpdateComponent },
       { path: 'agendamentos/read/:id', component: AgendamentoReadComponent },
+
+      { path: 'relatorios', component: RelatorioCreateComponent },
 
       { path: 'senhas', component: SenhaMenuComponent },
       { path: 'senhas/create', component: SenhaCreateComponent },

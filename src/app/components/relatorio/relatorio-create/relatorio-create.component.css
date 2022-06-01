@@ -1,0 +1,47 @@
+.container {
+    width: 45%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+ }
+ 
+ .full-width {
+    width: 100%;
+ }
+ 
+ h1, img, p{
+    text-align: center;
+ }
+ 
+ img {
+    height: 12rem;
+     width: 15rem;    
+     margin: auto;
+     display: block;
+ }
+ 
+ .inserir {
+    width: 100%;
+ }
+ 
+ .codBarra {
+    width: 100%;
+ }
+ 
+ button {
+    margin-top: .5rem;
+    width: 100%
+ }
+ 
+ p {
+    margin-top: 3rem;
+    opacity: .5;
+ }
+ 
+ .cont {
+    font-size: 20px;
+ }
+
+ .box {
+    margin-right: 2rem;
+ }
