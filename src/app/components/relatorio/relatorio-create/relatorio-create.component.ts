@@ -1,3 +1,5 @@
+import { ItensVenda } from './../../../models/itensVenda';
+import { ItensVendaService } from './../../../services/itens-venda.service';
 import { Venda } from 'src/app/models/venda';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -16,10 +18,10 @@ import { Relatorio } from 'src/app/models/relatorio';
 })
 export class RelatorioCreateComponent implements OnInit {
 
-  ELEMENT_DATA: Venda[] = [];
+  ELEMENT_DATA: ItensVenda[] = [];
 
   displayedColumns: string[] = ['produto', 'valorUnit'];
-  dataSource = new MatTableDataSource<Venda>(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource<ItensVenda>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -58,7 +60,7 @@ export class RelatorioCreateComponent implements OnInit {
 
     this.relatorioService.find(data).subscribe(resposta => {
       this.ELEMENT_DATA = resposta;
-      this.dataSource = new MatTableDataSource<Venda>(resposta);
+      this.dataSource = new MatTableDataSource<ItensVenda>(resposta);
       this.dataSource.paginator = this.paginator;
       this.toast.success('Relatóriio gerado com sucesso', 'Relatório');      
     }, ex => {      
