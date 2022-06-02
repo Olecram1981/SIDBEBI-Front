@@ -1,6 +1,6 @@
 export interface Relatorio{   
-    dataInicial: Date;
-    dataFinal: Date; 
+    dataInicial: String;
+    dataFinal: String; 
 	produto: any; 
     tipo: any;
     tamanho: String;

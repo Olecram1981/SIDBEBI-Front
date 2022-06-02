@@ -12,8 +12,8 @@ export class RelatorioService {
 
   constructor(private http: HttpClient) { }
 
-  find(dataInicial: Date, dataFinal: Date): Observable<Venda[]> {
-    return this.http.get<Venda[]>(`${API_CONFIG.baseUrl}/relatorios/${dataInicial}${dataFinal}`);
+  find(data: String): Observable<Venda[]> {
+    return this.http.get<Venda[]>(`${API_CONFIG.baseUrl}/relatorios/${data}`);
   }
   
 }

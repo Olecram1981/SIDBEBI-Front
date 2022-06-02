@@ -25,8 +25,8 @@ export class RelatorioCreateComponent implements OnInit {
 
 
   relatorio: Relatorio = {
-    dataInicial: null,
-    dataFinal: null,    
+    dataInicial: '',
+    dataFinal: '',    
     produto: '',
     tipo: '',
     tamanho: '',
@@ -52,9 +52,15 @@ export class RelatorioCreateComponent implements OnInit {
 
   
   find(): void {
-    this.relatorioService.find(this.relatorio.dataInicial, this.relatorio.dataFinal).subscribe(resposta => {
+    var dataIncial = new String(this.relatorio.dataInicial);
+    var dataFinal = new String(this.relatorio.dataFinal);
+    var data = dataIncial.concat(dataFinal.toString());
+
+    this.relatorioService.find(data).subscribe(resposta => {
       this.ELEMENT_DATA = resposta;
-      this.toast.info('Relatóriio gerado com sucesso', 'Relatório');      
+      this.dataSource = new MatTableDataSource<Venda>(resposta);
+      this.dataSource.paginator = this.paginator;
+      this.toast.success('Relatóriio gerado com sucesso', 'Relatório');      
     }, ex => {      
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
