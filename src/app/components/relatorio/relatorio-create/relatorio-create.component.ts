@@ -38,6 +38,9 @@ export class RelatorioCreateComponent implements OnInit {
 
   produtos: Produto[] = []
 
+  qtdTotalItens: number = 0
+  valorTotalItens: number = 0
+
   produto: FormControl = new FormControl(null, Validators.required);
   dataInicial: FormControl = new FormControl(null, Validators.required);
   dataFinal: FormControl = new FormControl(null, Validators.required);
@@ -57,12 +60,17 @@ export class RelatorioCreateComponent implements OnInit {
     var dataIncial = new String(this.relatorio.dataInicial);
     var dataFinal = new String(this.relatorio.dataFinal);
     var data = dataIncial.concat(dataFinal.toString());
-
-    this.relatorioService.find(data).subscribe(resposta => {
-      this.ELEMENT_DATA = resposta;
+    this.relatorioService.find(data).subscribe(resposta => {      
+      this.ELEMENT_DATA = resposta;      
       this.dataSource = new MatTableDataSource<ItensVenda>(resposta);
-      this.dataSource.paginator = this.paginator;
-      this.toast.success('Relatóriio gerado com sucesso', 'Relatório');      
+      this.dataSource.paginator = this.paginator;  
+      if(this.ELEMENT_DATA.length > 0){    
+        this.toast.success('Relatóriio gerado com sucesso', 'Relatório');   
+        this.valorTotalItens = 0;
+        this.formataRelatorio(this.ELEMENT_DATA);   
+      }else{
+        this.toast.info('Não foram encontradas vendas no período solicitado', 'Relatório');
+      }
     }, ex => {      
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
@@ -74,6 +82,13 @@ export class RelatorioCreateComponent implements OnInit {
     })
   }
 
+  formataRelatorio(elementos: ItensVenda[]):void {
+    this.qtdTotalItens = elementos.length;
+    for(let x=0; x<=elementos.length; x++){      
+      this.valorTotalItens = this.valorTotalItens + elementos[x].valorUnit;
+    }
+  }
+
   findAllProdutos(): void {
     this.produtoService.findAll().subscribe(resposta => {
       this.produtos = resposta;
@@ -81,7 +96,12 @@ export class RelatorioCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.dataInicial.valid || this.produto.valid;
+    return this.dataInicial.valid && this.dataFinal.valid;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
