@@ -19,9 +19,10 @@ import { Relatorio } from 'src/app/models/relatorio';
 export class RelatorioCreateComponent implements OnInit {
 
   ELEMENT_DATA: ItensVenda[] = [];
+  prodTab: Produto[] = [];
 
-  displayedColumns: string[] = ['produto', 'valorUnit'];
-  dataSource = new MatTableDataSource<ItensVenda>(this.ELEMENT_DATA);
+  displayedColumns: string[] = ['produto', 'qtd'];
+  dataSource = new MatTableDataSource<Produto>(this.prodTab);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -62,8 +63,6 @@ export class RelatorioCreateComponent implements OnInit {
     var data = dataIncial.concat(dataFinal.toString());
     this.relatorioService.find(data).subscribe(resposta => {      
       this.ELEMENT_DATA = resposta;      
-      this.dataSource = new MatTableDataSource<ItensVenda>(resposta);
-      this.dataSource.paginator = this.paginator;  
       if(this.ELEMENT_DATA.length > 0){    
         this.toast.success('Relatóriio gerado com sucesso', 'Relatório');   
         this.valorTotalItens = 0;
@@ -84,9 +83,33 @@ export class RelatorioCreateComponent implements OnInit {
 
   formataRelatorio(elementos: ItensVenda[]):void {
     this.qtdTotalItens = elementos.length;
-    for(let x=0; x<=elementos.length; x++){      
+    for(let x=0; x < elementos.length; x++){      
       this.valorTotalItens = this.valorTotalItens + elementos[x].valorUnit;
     }
+
+    var qtd = 0;
+    for (var i = 0; i < elementos.length; i++) {
+      var produto = elementos[i].item + elementos[i].tamanho;
+      for (var x = 0; x < elementos.length; x++) {
+        if (produto === elementos[x].item + elementos[x].tamanho){
+          qtd++;
+        }  
+      } 
+      this.prodTab[i] = {
+        id: '',
+        tipo: '',
+        nome: produto,	
+        tamanho: '',
+        qtd: qtd,
+        valorUnit: 0,
+        valorTotal: 0,
+        itens: [],
+        nivel: ''
+      };
+      qtd = 0;
+    }
+    this.dataSource = new MatTableDataSource<Produto>(this.prodTab);
+    this.dataSource.paginator = this.paginator;
   }
 
   findAllProdutos(): void {
