@@ -86,7 +86,6 @@ export class RelatorioCreateComponent implements OnInit {
     for(let x=0; x < elementos.length; x++){      
       this.valorTotalItens = this.valorTotalItens + elementos[x].valorUnit;
     }
-
     var qtd = 0;
     for (var i = 0; i < elementos.length; i++) {
       var produto = elementos[i].item + elementos[i].tamanho;
@@ -107,6 +106,17 @@ export class RelatorioCreateComponent implements OnInit {
         nivel: ''
       };
       qtd = 0;
+    }
+    for(let i = 0; i < this.prodTab.length; i++) {
+      for (let j = i+1; j < this.prodTab.length; j++) {
+        if (this.prodTab[i].nome === this.prodTab[j].nome) {
+          for (let k = i; k < this.prodTab.length; k++) {
+            this.prodTab[k] = this.prodTab[k+1];
+          }
+          this.prodTab.length--;
+          j--;
+        }
+      }
     }
     this.dataSource = new MatTableDataSource<Produto>(this.prodTab);
     this.dataSource.paginator = this.paginator;
