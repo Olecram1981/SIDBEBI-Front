@@ -41,6 +41,7 @@
           <mat-label>Valor Total</mat-label>
           <input 
           [disabled]="true"
+          currencyMask
           [(ngModel)]="venda.valorTotal"
           name="valorTotal"
           matInput>
@@ -51,7 +52,7 @@
 
         <h2>Produtos:</h2>
         <ul>
-          <li *ngFor="let item of itens"> {{item.item}} {{item.tamanho}} --- R$ {{item.valorUnit}}</li>
+          <li *ngFor="let item of itens"> {{item.item}} {{item.tamanho}} --- {{item.valorUnit | currency}}</li>
         </ul>
           
      </div>

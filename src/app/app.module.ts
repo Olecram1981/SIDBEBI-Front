@@ -1,5 +1,5 @@
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -68,6 +68,21 @@ import { AgendamentoCreateComponent } from './components/agendamento/agendamento
 import { AgendamentoUpdateComponent } from './components/agendamento/agendamento-update/agendamento-update.component';
 import { AgendamentoReadComponent } from './components/agendamento/agendamento-read/agendamento-read.component';
 import { RelatorioCreateComponent } from './components/relatorio/relatorio-create/relatorio-create.component';
+import  {  CurrencyMaskConfig ,  CurrencyMaskModule ,  CURRENCY_MASK_CONFIG  }  from  'ng2-currency-mask' ; 
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(ptBr);
+
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "left",
+  allowNegative: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: "."
+};
 
 @NgModule({
   declarations: [
@@ -138,8 +153,14 @@ import { RelatorioCreateComponent } from './components/relatorio/relatorio-creat
       progressBar: true
     }),
     NgxMaskModule.forRoot(),
+    CurrencyMaskModule
+
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [AuthInterceptorProvider,
+    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

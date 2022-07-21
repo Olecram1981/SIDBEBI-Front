@@ -30,7 +30,7 @@
 
          <ng-container matColumnDef="valorTotal">
             <th mat-header-cell *matHeaderCellDef> Valor Total </th>
-            <td mat-cell *matCellDef="let element"> R$ {{element.valorTotal}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.valorTotal | currency}} </td>
          </ng-container>
 
          <ng-container matColumnDef="acoes">

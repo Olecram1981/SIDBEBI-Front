@@ -36,12 +36,13 @@
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Valor Unitário</mat-label>
         <input 
-        [(ngModel)]="produto.valorUnit"
+        currencyMask
+        [(ngModel)]="produto.valorUnit"        
         name="valorUnit"
         [disabled]="true"
         matInput>
       </mat-form-field>
-
+      
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Quantidade em Estoque</mat-label>
         <input 
@@ -54,6 +55,7 @@
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Valor Total dos Itens</mat-label>
         <input 
+        currencyMask
         [(ngModel)]="produto.valorTotal"
         name="valorTotal"
         [disabled]="true"

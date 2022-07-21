@@ -34,7 +34,7 @@
 
       <h2>Produtos:</h2>
       <ul>
-        <li *ngFor="let item of itens"> {{item.nomeProduto}} {{item.tamanho}} --- R$ {{item.valor}}</li>
+        <li *ngFor="let item of itens"> {{item.nomeProduto}} {{item.tamanho}} --- {{item.valor | currency}}</li>
       </ul>
         
     </div>
@@ -50,7 +50,8 @@
     
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Valor Total</mat-label>
-      <input            
+      <input        
+      currencyMask    
       [(ngModel)]="venda.valorTotal"
       [formControl]="valorTotal"
       name="valorTotal"        
@@ -59,7 +60,8 @@
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Valor Pago</mat-label>
-      <input            
+      <input  
+      currencyMask          
       [(ngModel)]="valorPago"
       name="valorPago"        
       matInput>
@@ -67,7 +69,8 @@
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Troco</mat-label>
-      <input            
+      <input        
+      currencyMask    
       [(ngModel)]="troco"
       name="troco"    
       disabled="true"    

@@ -26,6 +26,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "express": "^4.18.1",
     "jspdf": "^2.5.1",
+    "ng2-currency-mask": "^13.0.3",
     "ngx-mask": "^13.1.13",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~6.6.0",

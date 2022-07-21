@@ -36,6 +36,7 @@
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Valor Unitário</mat-label>
         <input 
+        currencyMask
         [(ngModel)]="produto.valorUnit"
         name="valorUnit"
         [disabled]="true"

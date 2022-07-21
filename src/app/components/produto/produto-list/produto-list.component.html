@@ -28,9 +28,9 @@
             <td mat-cell *matCellDef="let element"> {{element.tamanho}} </td>
          </ng-container>
  
-          <ng-container matColumnDef="valorUnit">
+          <ng-container matColumnDef="valorUnit">            
              <th mat-header-cell *matHeaderCellDef> Valor Unitário </th>
-             <td mat-cell *matCellDef="let element">R$ {{element.valorUnit}} </td>
+             <td mat-cell *matCellDef="let element">{{element.valorUnit | currency}} </td>
           </ng-container>         
  
           <ng-container matColumnDef="acoes">

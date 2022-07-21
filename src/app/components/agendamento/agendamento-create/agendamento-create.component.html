@@ -92,7 +92,8 @@
     
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Valor Total</mat-label>
-      R$ <input            
+      <input        
+      currencyMask    
       [(ngModel)]="agendamento.valorTotal"
       [formControl]="valorTotal"
       name="valorTotal"        
@@ -103,7 +104,7 @@
 
       <h2>Produtos:</h2>
       <ul>
-        <li *ngFor="let item of itens"> {{item.nomeProduto}} {{item.tamanho}} --- R$ {{item.valor}}</li>
+        <li *ngFor="let item of itens"> {{item.nomeProduto}} {{item.tamanho}} --- {{item.valor | currency}}</li>
       </ul>
         
    </div>

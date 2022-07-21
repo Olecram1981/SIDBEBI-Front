@@ -50,7 +50,7 @@
        </div>
 
        <h2>Quantidade total de itens vendidos no período: {{qtdTotalItens}}</h2>
-       <h2>Valor total de vendas no período: R$ {{valorTotalItens}}</h2>
+       <h2>Valor total de vendas no período: {{valorTotalItens | currency}}</h2>
  
         <button (click)="find()" [disabled]="!validaCampos()" class="fullWidth mat-elevation-z4" 
         mat-flat-button color="primary">Gerar</button>
