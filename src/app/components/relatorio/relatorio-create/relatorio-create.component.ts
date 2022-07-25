@@ -88,9 +88,9 @@ export class RelatorioCreateComponent implements OnInit {
     }
     var qtd = 0;
     for (var i = 0; i < elementos.length; i++) {
-      var produto = elementos[i].item + elementos[i].tamanho;
+      var produto = elementos[i].item + " "+elementos[i].tamanho;
       for (var x = 0; x < elementos.length; x++) {
-        if (produto === elementos[x].item + elementos[x].tamanho){
+        if (produto === elementos[x].item + " "+elementos[x].tamanho){
           qtd++;
         }  
       } 

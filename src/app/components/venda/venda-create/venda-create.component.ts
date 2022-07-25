@@ -1,3 +1,7 @@
+import { Agendamento } from 'src/app/models/agendamento';
+import { AgendamentoService } from 'src/app/services/agendamento.service';
+import { ItensAgendamento } from './../../../models/itensAgendamento';
+import { ItensAgendamentoService } from './../../../services/itens-agendamento.service';
 import { Item } from './../../../models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -16,12 +20,21 @@ import { VendaService } from 'src/app/services/venda.service';
 })
 export class VendaCreateComponent implements OnInit {
 
-  itens: Item[] = [];
-
+  itens: Item[] = [];  
+  
   codBarra: string
   i: number = 0
   valorPago: number
   troco: number = 0
+
+  itensAgendamento: ItensAgendamento = {
+    id: '',
+    codBarra: '',
+    item: '',
+    valorUnit: 0,
+    agendamento: '',
+    tamanho: '',
+  }
   
   venda: Venda = {
     id: '',
@@ -43,6 +56,7 @@ export class VendaCreateComponent implements OnInit {
     private vendaService: VendaService,
     private itemService: ItemService,
     private toast: ToastrService,
+    private itensAgendamentoService: ItensAgendamentoService,    
     private router: Router,
   ) { }
 
@@ -52,24 +66,28 @@ export class VendaCreateComponent implements OnInit {
   }
 
   itemTabela(): void {
-    this.venda.itensVenda.push(this.codBarra)
-    this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {           
-      this.itens.push(resposta);
-      this.venda.qtdItens = this.venda.qtdItens + 1;
-      this.qtdItens.setValue(this.venda.qtdItens);      
-      this.venda.valorTotal = this.venda.valorTotal + this.itens[this.i].valor;
-      this.i = this.i + 1;
-      this.valorTotal.setValue(this.venda.valorTotal);
-    }, ex => { 
-      if(ex.error.errors) {
-        ex.error.errors.forEach(element => {
-          this.toast.error(element.message);
-        });
-      } else {
-        this.toast.error(ex.error.message);
-      }
-    })
-    this.codBarraT.reset(); 
+    if(this.verificaAgendamento(this.codBarra)){
+      this.venda.itensVenda.push(this.codBarra)
+      this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {           
+        this.itens.push(resposta);
+        this.venda.qtdItens = this.venda.qtdItens + 1;
+        this.qtdItens.setValue(this.venda.qtdItens);      
+        this.venda.valorTotal = this.venda.valorTotal + this.itens[this.i].valor;
+        this.i = this.i + 1;
+        this.valorTotal.setValue(this.venda.valorTotal);
+      }, ex => { 
+        if(ex.error.errors) {
+          ex.error.errors.forEach(element => {
+            this.toast.error(element.message);
+          });
+        } else {
+          this.toast.error(ex.error.message);
+        }
+      })
+      this.codBarraT.reset(); 
+    }else{
+      this.toast.warning('Item agendado para entrega', 'Agendado');
+    }
   }
 
   create(): void {
@@ -85,6 +103,19 @@ export class VendaCreateComponent implements OnInit {
         this.toast.error(ex.error.message);
       }
     })
+  }
+
+  verificaAgendamento(codBarra: string): boolean {
+    this.itensAgendamentoService.findByCodBarra(codBarra).subscribe(resposta => {
+      this.itensAgendamento = resposta;
+    }, ex => {
+      this.toast.error(ex.error.error);
+    });    
+    if(this.itensAgendamento.agendamento.status != 0 && this.itensAgendamento.agendamento.status != 1){
+      return true
+    }else{
+      return false;
+    }
   }
 
   validaCampos(): boolean {

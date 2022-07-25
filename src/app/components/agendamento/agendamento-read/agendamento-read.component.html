@@ -53,7 +53,7 @@
     name="pagamento"
     [disabled]="true">
       <mat-option value="0">DINHEIRO</mat-option>
-      <mat-option value="1">DÉBIDO</mat-option>
+      <mat-option value="1">DÉBITO</mat-option>
       <mat-option value="2">CRÉDITO</mat-option>
       <mat-option value="3">PIX</mat-option>
     </mat-select>
@@ -99,7 +99,7 @@
 
       <h2>Produtos:</h2>
       <ul>
-        <li *ngFor="let item of itens"> {{item.nomeProduto}} {{item.tamanho}} --- {{item.valor | currency}} </li>
+        <li *ngFor="let item of itens"> {{item.item}} {{item.tamanho}} --- {{item.valorUnit | currency}} </li>
       </ul>
         
    </div>

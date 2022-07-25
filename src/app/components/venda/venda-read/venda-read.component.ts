@@ -1,8 +1,5 @@
-import { ClienteService } from './../../../services/cliente.service';
-import { Cliente } from './../../../models/cliente';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { Venda } from 'src/app/models/venda';
 import { VendaService } from 'src/app/services/venda.service';
 
@@ -26,11 +23,8 @@ export class VendaReadComponent implements OnInit {
   }
 
   constructor(
-    private service: VendaService,
-    private toast:    ToastrService,
-    private router:          Router,
+    private service: VendaService,    
     private route:   ActivatedRoute,
-    private clienteService: ClienteService,
     ) { }
 
   ngOnInit(): void {
@@ -49,9 +43,9 @@ export class VendaReadComponent implements OnInit {
     if(pagamento == '0') {
       return 'DINHEIRO'
     } else if(pagamento == '1') {
-      return 'CRÉDITO'
-    } else if(pagamento == '2') {
       return 'DÉBITO'
+    } else if(pagamento == '2') {
+      return 'CRÉDITO'
     } else {
       return 'PIX'
     }

@@ -43,9 +43,9 @@ export class VendaListComponent implements OnInit {
     if(pagamento == '0') {
       return 'DINHEIRO'
     } else if(pagamento == '1') {
-      return 'CRÉDITO'
-    } else if(pagamento == '2') {
       return 'DÉBITO'
+    } else if(pagamento == '2') {
+      return 'CRÉDITO'
     } else {
       return 'PIX'
     }
