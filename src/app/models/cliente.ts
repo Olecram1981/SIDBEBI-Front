@@ -4,6 +4,5 @@ export interface Cliente{
     cpfCnpj: string;
     telefone: string;
     endereco: string;
-    email: string;    
-    clientes: []
+    email: string; 
 }

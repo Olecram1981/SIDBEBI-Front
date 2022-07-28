@@ -84,8 +84,8 @@ export class AgendamentoCreateComponent implements OnInit {
     this.codBarraT.reset(); 
   }
 
-  create(): void {
-    this.agendamentoService.create(this.agendamento).subscribe(() => {
+  create(): void {    
+    this.agendamentoService.create(this.agendamento).subscribe(() => {      
       this.toast.success('Agendamento efetuado com sucesso', 'Cadastro');
       this.router.navigate(['agendamentos']);
     }, ex => {      

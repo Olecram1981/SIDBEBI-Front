@@ -18,6 +18,7 @@ export class VendaDeleteComponent implements OnInit {
   venda: Venda = {
     id: '',
     dataHora: '',
+    hora: '',
     itens: [],
     itensVenda: [],
     qtdItens: 0,

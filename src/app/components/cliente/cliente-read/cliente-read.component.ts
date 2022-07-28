@@ -18,8 +18,7 @@ export class ClienteReadComponent implements OnInit {
     cpfCnpj: '',
     telefone: '',
     endereco: '',
-    email: '',
-    clientes: []
+    email: ''
   }
 
   constructor(

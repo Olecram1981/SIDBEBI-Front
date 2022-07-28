@@ -17,7 +17,7 @@ export class AgendamentoReadComponent implements OnInit {
     dataHora: '',
     itens: [],
     itensAgendamento: [],
-    cliente: '',
+    cliente: 0,
     qtdItens: 0,
     valorTotal: 0,
     telefone: '',

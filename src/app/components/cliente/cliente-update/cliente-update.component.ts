@@ -19,8 +19,7 @@ export class ClienteUpdateComponent implements OnInit {
     cpfCnpj: '',
     telefone: '',
     endereco: '',
-    email: '',
-    clientes: []
+    email: ''
   }
 
   nome: FormControl =  new FormControl(null, Validators.minLength(3));

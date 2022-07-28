@@ -39,6 +39,7 @@ export class VendaCreateComponent implements OnInit {
   venda: Venda = {
     id: '',
     dataHora: '',
+    hora: '',
     itens: [],
     itensVenda: [],
     qtdItens: 0,
@@ -66,15 +67,16 @@ export class VendaCreateComponent implements OnInit {
   }
 
   itemTabela(): void {
-    if(this.verificaAgendamento(this.codBarra)){
-      this.venda.itensVenda.push(this.codBarra)
+    this.verificaAgendamento();
+    this.venda.itensVenda.push(this.codBarra)
+    if(this.itensAgendamento.agendamento.status != 'SOLICITADO' && this.itensAgendamento.agendamento.status != 'ANDAMENTO'){       
       this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {           
-        this.itens.push(resposta);
-        this.venda.qtdItens = this.venda.qtdItens + 1;
-        this.qtdItens.setValue(this.venda.qtdItens);      
-        this.venda.valorTotal = this.venda.valorTotal + this.itens[this.i].valor;
-        this.i = this.i + 1;
-        this.valorTotal.setValue(this.venda.valorTotal);
+      this.itens.push(resposta);
+      this.venda.qtdItens = this.venda.qtdItens + 1;
+      this.qtdItens.setValue(this.venda.qtdItens);      
+      this.venda.valorTotal = this.venda.valorTotal + this.itens[this.i].valor;
+      this.i = this.i + 1;
+      this.valorTotal.setValue(this.venda.valorTotal);
       }, ex => { 
         if(ex.error.errors) {
           ex.error.errors.forEach(element => {
@@ -105,17 +107,12 @@ export class VendaCreateComponent implements OnInit {
     })
   }
 
-  verificaAgendamento(codBarra: string): boolean {
-    this.itensAgendamentoService.findByCodBarra(codBarra).subscribe(resposta => {
+  verificaAgendamento(): void {
+    this.itensAgendamentoService.findByCodBarra(this.codBarra).subscribe(resposta => {
       this.itensAgendamento = resposta;
     }, ex => {
       this.toast.error(ex.error.error);
-    });    
-    if(this.itensAgendamento.agendamento.status != 0 && this.itensAgendamento.agendamento.status != 1){
-      return true
-    }else{
-      return false;
-    }
+    });        
   }
 
   validaCampos(): boolean {
