@@ -66,30 +66,20 @@ export class VendaCreateComponent implements OnInit {
     this.valorTotal.disable();
   }
 
-  itemTabela(): void {
-    this.verificaAgendamento();
+  verificaAgendamento(): void {   
     this.venda.itensVenda.push(this.codBarra)
-    if(this.itensAgendamento.agendamento.status != 'SOLICITADO' && this.itensAgendamento.agendamento.status != 'ANDAMENTO'){       
-      this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {           
-      this.itens.push(resposta);
-      this.venda.qtdItens = this.venda.qtdItens + 1;
-      this.qtdItens.setValue(this.venda.qtdItens);      
-      this.venda.valorTotal = this.venda.valorTotal + this.itens[this.i].valor;
-      this.i = this.i + 1;
-      this.valorTotal.setValue(this.venda.valorTotal);
-      }, ex => { 
-        if(ex.error.errors) {
-          ex.error.errors.forEach(element => {
-            this.toast.error(element.message);
-          });
-        } else {
-          this.toast.error(ex.error.message);
+    this.itensAgendamentoService.findByCodBarra(this.codBarra).subscribe(resposta => {
+      this.itensAgendamento = resposta;
+      if(this.itensAgendamento.id != 0) {
+        if(this.itensAgendamento.agendamento.status != 'SOLICITADO' && this.itensAgendamento.agendamento.status != 'ANDAMENTO'){       
+          this.itemTabela();
+        }else{
+          this.toast.warning('Item agendado para entrega', 'Agendado');
         }
-      })
-      this.codBarraT.reset(); 
-    }else{
-      this.toast.warning('Item agendado para entrega', 'Agendado');
-    }
+      }else{
+        this.itemTabela();
+      }
+    });     
   }
 
   create(): void {
@@ -107,12 +97,24 @@ export class VendaCreateComponent implements OnInit {
     })
   }
 
-  verificaAgendamento(): void {
-    this.itensAgendamentoService.findByCodBarra(this.codBarra).subscribe(resposta => {
-      this.itensAgendamento = resposta;
-    }, ex => {
-      this.toast.error(ex.error.error);
-    });        
+  itemTabela(): void {
+    this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {           
+      this.itens.push(resposta);
+      this.venda.qtdItens = this.venda.qtdItens + 1;
+      this.qtdItens.setValue(this.venda.qtdItens);      
+      this.venda.valorTotal = this.venda.valorTotal + this.itens[this.i].valor;
+      this.i = this.i + 1;
+      this.valorTotal.setValue(this.venda.valorTotal);
+      }, ex => { 
+        if(ex.error.errors) {
+          ex.error.errors.forEach(element => {
+            this.toast.error(element.message);
+          });
+        } else {
+          this.toast.error(ex.error.message);
+        }
+      })
+      this.codBarraT.reset(); 
   }
 
   validaCampos(): boolean {

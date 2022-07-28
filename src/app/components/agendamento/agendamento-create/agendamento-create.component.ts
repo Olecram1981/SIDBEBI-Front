@@ -63,8 +63,23 @@ export class AgendamentoCreateComponent implements OnInit {
     this.telefone.disable();
   }
 
+  verificaAgendamento(): void {   
+    this.venda.itensVenda.push(this.codBarra)
+    this.itensAgendamentoService.findByCodBarra(this.codBarra).subscribe(resposta => {
+      this.itensAgendamento = resposta;
+      if(this.itensAgendamento.id != 0) {
+        if(this.itensAgendamento.agendamento.status != 'SOLICITADO' && this.itensAgendamento.agendamento.status != 'ANDAMENTO'){       
+          this.itemTabela();
+        }else{
+          this.toast.warning('Item agendado para entrega', 'Agendado');
+        }
+      }else{
+        this.itemTabela();
+      }
+    });     
+  }
+
   itemTabela(): void {
-    this.agendamento.itensAgendamento.push(this.codBarra)
     this.itemService.findByCodBarra(this.codBarra).subscribe(resposta => {           
       this.itens.push(resposta);
       this.agendamento.qtdItens = this.agendamento.qtdItens + 1;
