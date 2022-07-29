@@ -1,3 +1,5 @@
+import { ItensAgendamentoService } from './../../../services/itens-agendamento.service';
+import { ItensAgendamento } from './../../../models/itensAgendamento';
 import { Item } from './../../../models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -37,6 +39,15 @@ export class AgendamentoCreateComponent implements OnInit {
     end: '',   
   }
 
+  itensAgendamento: ItensAgendamento = {
+    id: '',
+    codBarra: '',
+    item: '',
+    valorUnit: 0,
+    agendamento: '',
+    tamanho: '',
+  }
+
   cliente: FormControl = new FormControl(null, Validators.required);
   pagamento: FormControl = new FormControl(null, Validators.required);
   codBarraT: FormControl = new FormControl(null, Validators.required);
@@ -52,6 +63,7 @@ export class AgendamentoCreateComponent implements OnInit {
     private itemService: ItemService,
     private clienteService: ClienteService,
     private toast: ToastrService,
+    private itensAgendamentoService: ItensAgendamentoService,   
     private router: Router,
   ) { }
 
@@ -64,14 +76,14 @@ export class AgendamentoCreateComponent implements OnInit {
   }
 
   verificaAgendamento(): void {   
-    this.venda.itensVenda.push(this.codBarra)
+    this.agendamento.itensAgendamento.push(this.codBarra)
     this.itensAgendamentoService.findByCodBarra(this.codBarra).subscribe(resposta => {
       this.itensAgendamento = resposta;
       if(this.itensAgendamento.id != 0) {
         if(this.itensAgendamento.agendamento.status != 'SOLICITADO' && this.itensAgendamento.agendamento.status != 'ANDAMENTO'){       
           this.itemTabela();
         }else{
-          this.toast.warning('Item agendado para entrega', 'Agendado');
+          this.toast.warning('Item já econtra-se agendado para entrega', 'Agendado');
         }
       }else{
         this.itemTabela();
