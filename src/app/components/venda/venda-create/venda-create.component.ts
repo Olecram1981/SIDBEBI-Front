@@ -39,6 +39,7 @@ export class VendaCreateComponent implements OnInit {
   venda: Venda = {
     id: '',
     dataHora: '',
+    dataHoraRegistro: '',
     hora: '',
     itens: [],
     itensVenda: [],

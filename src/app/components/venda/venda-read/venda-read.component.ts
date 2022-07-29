@@ -15,6 +15,7 @@ export class VendaReadComponent implements OnInit {
   venda: Venda = {
     id: '',
     dataHora: '',
+    dataHoraRegistro: '',
     hora: '',
     itens: [],
     itensVenda: [],

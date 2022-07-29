@@ -5,8 +5,10 @@
 }
 
 h1{
-    margin-top: 1rem;
+    margin: auto;
     border: 1px solid gray;
-    padding: 1rem 10%;
-    border-radius: 2rem;
+    padding: 3rem 26%;
+    background: linear-gradient(315deg, #a40606 0%, #d98324 74%);
+    color: antiquewhite;
+    font-weight: bold;
 }

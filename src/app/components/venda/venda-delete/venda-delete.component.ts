@@ -18,6 +18,7 @@ export class VendaDeleteComponent implements OnInit {
   venda: Venda = {
     id: '',
     dataHora: '',
+    dataHoraRegistro: '',
     hora: '',
     itens: [],
     itensVenda: [],
@@ -31,7 +32,6 @@ export class VendaDeleteComponent implements OnInit {
     private toast:    ToastrService,
     private router:          Router,
     private route:   ActivatedRoute,
-    private clienteService: ClienteService,
     ) { }
 
   ngOnInit(): void {
