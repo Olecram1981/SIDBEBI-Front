@@ -1,3 +1,4 @@
+import { ItensVenda } from './../../../models/itensVenda';
 import { Agendamento } from 'src/app/models/agendamento';
 import { AgendamentoService } from 'src/app/services/agendamento.service';
 import { ItensAgendamento } from './../../../models/itensAgendamento';
@@ -114,6 +115,7 @@ export class VendaCreateComponent implements OnInit {
           });
         } else {
           this.toast.error(ex.error.message);
+          this.venda.itensVenda.pop();
         }
       })
       this.codBarraT.reset(); 
