@@ -52,6 +52,7 @@ export class VendaCreateComponent implements OnInit {
   codBarraT: FormControl = new FormControl(null, Validators.required);
   qtdItens: FormControl = new FormControl(null, Validators.required);
   valorTotal: FormControl = new FormControl(null, Validators.required);
+  valorPagoT: FormControl = new FormControl(null, Validators.required);
   
   
   constructor(
@@ -119,8 +120,11 @@ export class VendaCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    if(this.itens.length > 0) {
-      return this.pagamento.valid;    
+    if(this.itens.length > 0) {   
+      if(this.venda.pagamento == '0') { 
+        return this.valorPagoT.valid; 
+      } 
+      return this.pagamento.valid;     
     }else{
       return false;
     }
