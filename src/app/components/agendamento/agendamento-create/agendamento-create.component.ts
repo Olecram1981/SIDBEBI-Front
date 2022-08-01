@@ -106,6 +106,7 @@ export class AgendamentoCreateComponent implements OnInit {
         });
       } else {
         this.toast.error(ex.error.message);
+        this.agendamento.itensAgendamento.pop();
       }
     })
     this.codBarraT.reset(); 
