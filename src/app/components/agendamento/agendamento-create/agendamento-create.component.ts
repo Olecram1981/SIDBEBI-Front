@@ -150,4 +150,8 @@ export class AgendamentoCreateComponent implements OnInit {
     }
   }
 
+  validaCodBarra(): boolean {
+    return this.codBarraT.valid; 
+  }
+
 }

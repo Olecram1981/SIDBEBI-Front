@@ -28,7 +28,8 @@
       maxlength="50">
     </mat-form-field>  
 
-    <button (click)="verificaAgendamento()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Inserir Item</button>
+    <button (click)="verificaAgendamento()" [disabled]="!validaCodBarra()" class="fullWidth mat-elevation-z4" 
+      mat-flat-button color="primary">Inserir Item</button>
    
     <div class="lista mat-elevation-z8"> 
 

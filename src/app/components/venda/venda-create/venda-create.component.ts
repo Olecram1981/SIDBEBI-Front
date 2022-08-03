@@ -132,4 +132,8 @@ export class VendaCreateComponent implements OnInit {
     }
   }
 
+  validaCodBarra(): boolean {
+    return this.codBarraT.valid; 
+  }
+
 }
