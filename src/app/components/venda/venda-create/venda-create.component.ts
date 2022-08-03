@@ -89,6 +89,7 @@ export class VendaCreateComponent implements OnInit {
     this.vendaService.create(this.venda).subscribe(() => {
       this.troco = this.valorPago - this.venda.valorTotal;
       this.toast.success('Venda efetuada com sucesso', 'Cadastro');
+      this.router.navigate(['vendas']);
     }, ex => {      
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
